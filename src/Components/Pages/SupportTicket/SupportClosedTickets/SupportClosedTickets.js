@@ -1,63 +1,61 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import SingleItem from '../SingleItem';
 
 const SupportClosedTickets = () => {
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        fetch(`http://localhost:5000/api/admin/support/tickets/close/view`, {
+            method: 'GET',
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                setData(data.data)
+            })
+    }, [])
     return (
         <>
-              <div className="bodywrapper__inner">
+            <div className="bodywrapper__inner">
 
-<div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-    <h6 className="page-title">Closed Tickets</h6>
-    <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
-    </div>
-</div>
-
-<div className="row">
-    <div className="col-lg-12">
-        <div className="card b-radius--10 ">
-            <div className="card-body p-0">
-                <div className="table-responsive--sm table-responsive">
-                    <table className="table table--light">
-                        <thead>
-                            <tr>
-                                <th>Subject</th>
-                                <th>Submitted By</th>
-                                <th>Status</th>
-                                <th>Priority</th>
-                                <th>Last Reply</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td data-label="Subject">
-                                    <a href="https://gffexvip.biz/admin/ticket/view/84" className="fw-bold"> [Ticket#89707690] re: collaboration request </a>
-                                </td>
-
-                                <td data-label="Submitted By">
-                                    <p className="fw-bold"> Hassie</p>
-                                </td>
-                                <td data-label="Status">
-                                    <span className="badge badge--success">Open</span>                                    </td>
-                                <td data-label="Priority">
-                                    <span className="badge  badge--warning">Medium</span>
-                                </td>
-
-                                <td data-label="Last Reply">
-                                    2 days ago
-                                </td>
-
-                                <td data-label="Action">
-                                    <a href="https://gffexvip.biz/admin/ticket/view/84" className="btn btn-sm btn-outline-primary ms-1">
-                                        <i className="las la-desktop"></i> Details                                        </a>
-                                </td>
-                            </tr>
-                          
-
-                        </tbody>
-                    </table>
+                <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
+                    <h6 className="page-title">Closed Tickets</h6>
+                    <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
+                    </div>
                 </div>
-            </div>
-            {/* <div className="card-footer py-4">
+
+                <div className="row">
+                    <div className="col-lg-12">
+                        <div className="card b-radius--10 ">
+                            <div className="card-body p-0">
+                                <div className="table-responsive--sm table-responsive">
+                                    <table className="table table--light">
+                                        <thead>
+                                            <tr>
+                                                <th>Subject</th>
+                                                <th>Submitted By</th>
+                                                <th>Status</th>
+                                                <th>Priority</th>
+                                                <th>Last Reply</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {data.length !== 0 ?
+                                                data.map((data, index) => {
+                                                    console.log(data)
+                                                    if (data) {
+                                                        return (
+                                                            <SingleItem data={data} index={index} key={data._id} ></SingleItem>
+                                                        );
+                                                    }
+                                                }) :
+                                                <tr>
+                                                    <td className="text-muted text-center" colspan="100%">Data not found</td>
+                                                </tr>}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            {/* <div className="card-footer py-4">
                 <nav className="d-flex justify-content-end">
                     <ul className="pagination">
 
@@ -81,12 +79,12 @@ const SupportClosedTickets = () => {
                 </nav>
 
             </div> */}
-        </div>
-    </div>
-</div>
+                        </div>
+                    </div>
+                </div>
 
 
-</div>
+            </div>
         </>
     );
 };

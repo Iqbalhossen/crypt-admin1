@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import SingleItem from '../SingleItem';
 
 const SupportTicketAll = () => {
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        fetch(`http://localhost:5000/api/admin/support/tickets/all/view`, {
+            method: 'GET',
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                setData(data.data)
+            })
+    }, [])
     return (
         <>
            <div className="bodywrapper__inner">
@@ -28,30 +40,18 @@ const SupportTicketAll = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td data-label="Subject">
-                                    <a href="https://gffexvip.biz/admin/ticket/view/84" className="fw-bold"> [Ticket#89707690] re: collaboration request </a>
-                                </td>
-
-                                <td data-label="Submitted By">
-                                    <p className="fw-bold"> Hassie</p>
-                                </td>
-                                <td data-label="Status">
-                                    <span className="badge badge--success">Open</span>                                    </td>
-                                <td data-label="Priority">
-                                    <span className="badge  badge--warning">Medium</span>
-                                </td>
-
-                                <td data-label="Last Reply">
-                                    2 days ago
-                                </td>
-
-                                <td data-label="Action">
-                                    <a href="https://gffexvip.biz/admin/ticket/view/84" className="btn btn-sm btn-outline-primary ms-1">
-                                        <i className="las la-desktop"></i> Details                                        </a>
-                                </td>
-                            </tr>
-                          
+                        {data.length !== 0 ?
+                                            data.map((data, index) => {
+                                                console.log(data)
+                                                if (data) {
+                                                    return (
+                                                        <SingleItem data={data} index={index} key={data._id} ></SingleItem>
+                                                    );
+                                                }
+                                            }) :
+                                            <tr>
+                                                <td className="text-muted text-center" colspan="100%">Data not found</td>
+                                            </tr>}
 
                         </tbody>
                     </table>
