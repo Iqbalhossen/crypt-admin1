@@ -37,8 +37,8 @@ const Login = () => {
                     })
                     refSubmitDis.current.removeAttribute("disabled");
                 } else {
-                    const user = data;                    
-                    localStorage.setItem("gffex_admin_ID", JSON.stringify(user.data));
+                    const user = data;    
+                    localStorage.setItem("gffex_admin_ID", JSON.stringify(user));
                     const expires = new Date(Date.now() + 30*6000*1000).toUTCString();
                     document.cookie = `gffex_admin_token=OiJpcWJhbDExMSIsInVzZXJfaWQiOiI2M2VhNmE3MmJ1c2VyX25hbWMzODM5NX0VzZXJfaWQiOiI2M2InVzZXJfaWQiOiI2M2VhNmE3MmU4N2U5ZWJkNGM; expires=${expires};`;
                     event.target.reset();

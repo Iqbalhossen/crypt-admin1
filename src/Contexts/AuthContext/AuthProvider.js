@@ -7,7 +7,7 @@ const getlocalStorageItem = () =>{
         return null;
     }
 
-}
+} 
  
 export const AuthContext = createContext('');
 
@@ -20,8 +20,8 @@ const AuthProvider = ({children}) => {
         // console.log("context api : ", data);
     }
     useEffect(() => {
-        if(authId?._id){
-            fetch(`http://localhost:5000/api/admin/role/view/${authId?._id}`, {
+        if(authId?.data?._id){
+            fetch(`http://localhost:5000/api/admin/role/view/${authId?.data?._id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
