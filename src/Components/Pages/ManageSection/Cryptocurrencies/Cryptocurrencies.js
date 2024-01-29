@@ -12,7 +12,7 @@ const Cryptocurrencies = () => {
     const handleSubmitData = event => {
         event.preventDefault();
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`http://localhost:5000/api/admin/home/cryptocurrencies/store`, {
+        fetch(`http://66.29.142.198:5000/api/admin/home/cryptocurrencies/store`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -64,7 +64,7 @@ const Cryptocurrencies = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/frontend/home/cryptocurrencies/view`, {
+        fetch(`http://66.29.142.198:5000/api/frontend/home/cryptocurrencies/view`, {
             method: 'GET',
         })
             .then((res) => res.json())

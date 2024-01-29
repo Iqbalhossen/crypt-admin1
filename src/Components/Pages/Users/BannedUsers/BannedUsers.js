@@ -4,7 +4,7 @@ import SingleItem from '../SingleItem';
 const BannedUsers = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/view/banned`, {
+        fetch(`http://66.29.142.198:5000/api/admin/user/view/banned`, {
             method: 'GET',
         })
             .then((res) => res.json())

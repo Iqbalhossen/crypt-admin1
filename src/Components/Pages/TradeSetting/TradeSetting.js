@@ -19,7 +19,7 @@ const TradeSetting = () => {
     const refSubmitDis = useRef();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/trade/setting/view`, {
+        fetch(`http://66.29.142.198:5000/api/admin/trade/setting/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -30,7 +30,7 @@ const TradeSetting = () => {
 
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/api/admin/trade/setting/delete/${id}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/trade/setting/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
@@ -65,7 +65,7 @@ const TradeSetting = () => {
                 'content-type': 'application/json',
             }
         };
-        axios.post(`http://localhost:5000/api/admin/trade/setting/store`, userData, config)
+        axios.post(`http://66.29.142.198:5000/api/admin/trade/setting/store`, userData, config)
             .then(response => {
                 event.target.reset();
                 setShow(false)

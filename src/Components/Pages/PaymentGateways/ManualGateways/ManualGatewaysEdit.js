@@ -21,7 +21,7 @@ const ManualGatewaysEdit = () => {
                 'content-type': 'application/json',
             }
         };
-        axios.put(`http://localhost:5000/api/admin/gateway/manual/update/${id}`, storeData, config)
+        axios.put(`http://66.29.142.198:5000/api/admin/gateway/manual/update/${id}`, storeData, config)
             .then(response => {
                 event.target.reset();
                 toast.success(`${response?.data.message}`, {

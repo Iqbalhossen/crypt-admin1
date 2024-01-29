@@ -5,7 +5,7 @@ import SingleItem from '../SingleItem';
 const SupportTicketAnswered = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/support/tickets/answered/view`, {
+        fetch(`http://66.29.142.198:5000/api/admin/support/tickets/answered/view`, {
             method: 'GET',
         })
             .then((res) => res.json())

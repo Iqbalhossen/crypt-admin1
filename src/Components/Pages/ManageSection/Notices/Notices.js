@@ -16,7 +16,7 @@ const Notices = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/frontend/home/notices/view`, {
+        fetch(`http://66.29.142.198:5000/api/frontend/home/notices/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -27,7 +27,7 @@ const Notices = () => {
 
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/api/admin/home/notice/delete/${id}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/home/notice/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
@@ -47,7 +47,7 @@ const Notices = () => {
     const handleSubmitData = event => {
         event.preventDefault();
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`http://localhost:5000/api/admin/home/notice/store`, {
+        fetch(`http://66.29.142.198:5000/api/admin/home/notice/store`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

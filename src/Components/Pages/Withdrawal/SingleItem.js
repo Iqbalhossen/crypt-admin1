@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const SingleItem = ({ data, index }) => {
     const [userData, setuserData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/view/single/${data?.user_id}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/user/view/single/${data?.user_id}`, {
             method: 'GET',
         })
             .then((res) => res.json())

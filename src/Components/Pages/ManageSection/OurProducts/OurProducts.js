@@ -14,7 +14,7 @@ const OurProducts = () => {
     const handleTitleSubmitData = event => {
         event.preventDefault();
         refTitleSubmitDis.current.setAttribute("disabled", true);
-        fetch(`http://localhost:5000/api/admin/home/our/products/title/store`, {
+        fetch(`http://66.29.142.198:5000/api/admin/home/our/products/title/store`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -55,7 +55,7 @@ const OurProducts = () => {
 
     const [TitleData, setTitleData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/frontend/home/our/products/title/view`, {
+        fetch(`http://66.29.142.198:5000/api/frontend/home/our/products/title/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -66,7 +66,7 @@ const OurProducts = () => {
     const [data, setData] = useState([]);
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/frontend/home/our/products/view`, {
+        fetch(`http://66.29.142.198:5000/api/frontend/home/our/products/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -77,7 +77,7 @@ const OurProducts = () => {
 
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/api/admin/home/our/products/delete/${id}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/home/our/products/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',

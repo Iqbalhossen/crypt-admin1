@@ -17,7 +17,7 @@ const Profile = () => {
 
     useEffect(() => {
         if(authUser?._id){
-            fetch(`http://localhost:5000/api/admin/role/view/${authUser?._id}`, {
+            fetch(`http://66.29.142.198:5000/api/admin/role/view/${authUser?._id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
@@ -57,7 +57,7 @@ const Profile = () => {
                     'content-type': 'multipart/form-data',
                 }
             };
-            axios.put(`http://localhost:5000/api/admin/profile/update/${data?._id}`, userData, config)
+            axios.put(`http://66.29.142.198:5000/api/admin/profile/update/${data?._id}`, userData, config)
                 .then(response => {
                     event.target.reset();
                     setResults(response.data)
@@ -83,7 +83,7 @@ const Profile = () => {
                     'content-type': 'multipart/form-data',
                 }
             };
-            axios.put(`http://localhost:5000/api/admin/profile/update/${data?._id}`, userData, config)
+            axios.put(`http://66.29.142.198:5000/api/admin/profile/update/${data?._id}`, userData, config)
                 .then(response => {
                     event.target.reset();
                     setResults(response.data)
@@ -133,7 +133,7 @@ const Profile = () => {
                             <div className="d-flex p-3 bg--primary align-items-center">
                                 <div className="avatar avatar--lg">
                                     <img src={authUser?.picture ?
-                                            `http://localhost:5000/${data?.picture}`
+                                            `http://66.29.142.198:5000/${data?.picture}`
                                             :
                                             'https://gffexvip.biz/assets/admin/images/profile/6415c7db489ed1679149019.png'
                                             
@@ -194,7 +194,7 @@ const Profile = () => {
                                                     <div className="avatar-preview">
                                                         <div className="profilePicPreview" style={{ backgroundImage:
                                                             data?.picture ?
-                                                                `url(http://localhost:5000/${data?.picture})`
+                                                                `url(http://66.29.142.198:5000/${data?.picture})`
                                                                 :
                                                                 "url('https://gffexvip.biz/assets/admin/images/profile/6415c7db489ed1679149019.png')"  
                                                               }}>

@@ -67,7 +67,7 @@ const OurProductsAdd = () => {
                     'content-type': 'multipart/form-data',
                 }
             };
-            axios.post(`http://localhost:5000/api/admin/home/our/products/store`, userData, config)
+            axios.post(`http://66.29.142.198:5000/api/admin/home/our/products/store`, userData, config)
                 .then(response => {
                     event.target.reset();
                     toast.success(`${response?.data.message}`, {

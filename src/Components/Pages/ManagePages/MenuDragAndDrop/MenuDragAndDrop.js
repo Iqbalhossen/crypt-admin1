@@ -88,7 +88,7 @@ const MenuDragAndDrop = ({ data, menuPageData }) => {
 
     const handleData = () => {
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`http://localhost:5000/api/admin/menu/page/create/${data._id}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/menu/page/create/${data._id}`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

@@ -10,7 +10,7 @@ const SliderEdit = () => {
     const refSubmitDis = useRef();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/home/slider/edit/${id}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/home/slider/edit/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -49,7 +49,7 @@ const SliderEdit = () => {
                     'content-type': 'multipart/form-data',
                 }
             };
-            axios.put(`http://localhost:5000/api/admin/home/slider/update/${id}`, userData, config)
+            axios.put(`http://66.29.142.198:5000/api/admin/home/slider/update/${id}`, userData, config)
                 .then(response => {
                     event.target.reset();
                     toast.success(`${response?.data.message}`, {
@@ -93,7 +93,7 @@ const SliderEdit = () => {
                                                 <div className="thumb">
                                                     <div className="avatar-preview">
                                                         <div className="profilePicPreview" style={{ height: '120px', }}>
-                                                            <img src={`http://localhost:5000/${data?.image_url}`} alt="" />
+                                                            <img src={`http://66.29.142.198:5000/${data?.image_url}`} alt="" />
                                                         </div>
                                                     </div>
                                                     <div className="avatar-edit">

@@ -14,7 +14,7 @@ const Password = () => {
 
     useEffect(() => {
         if (authUser?._id) {
-            fetch(`http://localhost:5000/api/admin/role/view/${authUser?._id}`, {
+            fetch(`http://66.29.142.198:5000/api/admin/role/view/${authUser?._id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
@@ -47,7 +47,7 @@ const Password = () => {
                     'content-type': 'application/json',
                 }
             };
-            axios.put(`http://localhost:5000/api/admin/password/update/${data?._id}`, dataVulue, config)
+            axios.put(`http://66.29.142.198:5000/api/admin/password/update/${data?._id}`, dataVulue, config)
                 .then(response => {
                     if(response?.data.success === false){
                         toast.error(`${response?.data.message}`, {
@@ -111,7 +111,7 @@ const Password = () => {
                                 <div className="d-flex p-3 bg--primary align-items-center">
                                     <div className="avatar avatar--lg">
                                         <img src={authUser?.picture ?
-                                            `http://localhost:5000/${data?.picture}`
+                                            `http://66.29.142.198:5000/${data?.picture}`
                                             :
                                             'https://gffexvip.biz/assets/admin/images/profile/6415c7db489ed1679149019.png'
 

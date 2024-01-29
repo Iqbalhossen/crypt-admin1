@@ -4,7 +4,7 @@ import SingleItem from '../SingleItem';
 const AllUsers = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/view/all`, {
+        fetch(`http://66.29.142.198:5000/api/admin/user/view/all`, {
             method: 'GET',
         })
             .then((res) => res.json())

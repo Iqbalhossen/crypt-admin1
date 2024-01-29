@@ -5,7 +5,7 @@ const RejectDeposits = () => {
     const [data, setData] = useState([]);
     const [dataSum, setDataSum] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/deposit/reject`, {
+        fetch(`http://66.29.142.198:5000/api/admin/deposit/reject`, {
             method: 'GET',
         })
             .then((res) => res.json())

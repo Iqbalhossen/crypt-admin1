@@ -8,7 +8,7 @@ const Home = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/dashboard/view`, {
+        fetch(`http://66.29.142.198:5000/api/admin/dashboard/view`, {
             method: 'GET',
         })
             .then((res) => res.json())

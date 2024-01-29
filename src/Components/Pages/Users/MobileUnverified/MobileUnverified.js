@@ -4,7 +4,7 @@ import SingleItem from '../SingleItem';
 const MobileUnverified = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/view/unverify/mobile`, {
+        fetch(`http://66.29.142.198:5000/api/admin/user/view/unverify/mobile`, {
             method: 'GET',
         })
             .then((res) => res.json())

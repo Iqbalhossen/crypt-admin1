@@ -8,7 +8,7 @@ const DepositsDetails = () => {
     const [data, setData] = useState([]);
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/deposit/single/${id}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/deposit/single/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -20,7 +20,7 @@ const DepositsDetails = () => {
     const userId = `${data ? data?.user_id : null}`
     const [userData, setuserData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/view/single/${userId}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/user/view/single/${userId}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -30,7 +30,7 @@ const DepositsDetails = () => {
     }, [data])
 
     const handleAccept = id => {
-        fetch(`http://localhost:5000/api/admin/deposit/accept/${id}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/deposit/accept/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -53,7 +53,7 @@ const DepositsDetails = () => {
             .catch(error => console.log(error));
     }
     const handleReject = id => {
-        fetch(`http://localhost:5000/api/admin/deposit/reject/${id}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/deposit/reject/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -159,7 +159,7 @@ const DepositsDetails = () => {
                             <div class="row mt-4">
                                 <div class="col-md-12">
                                     <h6>Transaction screenshot</h6>
-                                    <a href={`http://localhost:5000/${data?.screenshot}`} target='_blank' class="me-3" alt=''><i class="fa fa-file"></i>  Attachment </a>
+                                    <a href={`http://66.29.142.198:5000/${data?.screenshot}`} target='_blank' class="me-3" alt=''><i class="fa fa-file"></i>  Attachment </a>
                                 </div>
                             </div>
                             <div class="row mt-4">

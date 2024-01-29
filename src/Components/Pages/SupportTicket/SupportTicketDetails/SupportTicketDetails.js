@@ -13,7 +13,7 @@ const SupportTicketDetails = () => {
     const [updateData, setUpdateData] = useState([]);
     const [messageData, setMessageData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/support/tickets/view/details/${id}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/support/tickets/view/details/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -56,7 +56,7 @@ const SupportTicketDetails = () => {
                 }
             };
             axios
-                .post(`http://localhost:5000/api/admin/support/tickets/message/${id}`, storeData, config)
+                .post(`http://66.29.142.198:5000/api/admin/support/tickets/message/${id}`, storeData, config)
                 .then(data => {
                     event.target.reset();
                     toast.success(`${data.data.message}`, {
@@ -84,7 +84,7 @@ const SupportTicketDetails = () => {
                 }
             };
             axios
-                .post(`http://localhost:5000/api/admin/support/tickets/message/${id}`, storeData, config)
+                .post(`http://66.29.142.198:5000/api/admin/support/tickets/message/${id}`, storeData, config)
                 .then(data => {
                     event.target.reset();
                     toast.success(`${data.data.message}`, {
@@ -108,7 +108,7 @@ const SupportTicketDetails = () => {
     }
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/api/admin/support/tickets/message/delete/${id}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/support/tickets/message/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
@@ -131,7 +131,7 @@ const SupportTicketDetails = () => {
             .catch(error => console.log(error));
     }
     const handleSupportTicketsClose = () => {
-        fetch(`http://localhost:5000/api/admin/support/tickets/close/${id}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/support/tickets/close/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

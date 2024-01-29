@@ -7,7 +7,7 @@ const SingleItem = ({data, ticket, handleDelete}) => {
     const [FileData, setFileData] = useState([]);
     useEffect(() => {
         if(_id){
-            fetch(`http://localhost:5000/api/admin/support/tickets/file/view/${_id}`, {
+            fetch(`http://66.29.142.198:5000/api/admin/support/tickets/file/view/${_id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
@@ -22,7 +22,7 @@ const SingleItem = ({data, ticket, handleDelete}) => {
     const [admin, setAdmin] = useState([]);
     useEffect(() => {
         if(admin_id !== null && data){
-            fetch(`http://localhost:5000/api/admin/role/view/${admin_id}`, {
+            fetch(`http://66.29.142.198:5000/api/admin/role/view/${admin_id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
@@ -52,7 +52,7 @@ if(admin_id === null){
                     <p>{message}</p>
                     <div className="my-3">
                         {FileData?.attachment !== undefined ?
-                        <Link target='_blank' to={`http://localhost:5000/${FileData?.attachment}`} className="me-2"><i className="fa fa-file"></i> Attachment</Link>
+                        <Link target='_blank' to={`http://66.29.142.198:5000/${FileData?.attachment}`} className="me-2"><i className="fa fa-file"></i> Attachment</Link>
                         : ''}
                      
                         
@@ -90,7 +90,7 @@ if(admin_id === null){
                     <p>{message}</p>
                     <div className="my-3">
                         {FileData?.attachment !== undefined ?
-                        <Link target='_blank' to={`http://localhost:5000/${FileData?.attachment}`} className="me-2"><i className="fa fa-file"></i> Attachment</Link>
+                        <Link target='_blank' to={`http://66.29.142.198:5000/${FileData?.attachment}`} className="me-2"><i className="fa fa-file"></i> Attachment</Link>
                         : ''}                     
                         
                     </div>

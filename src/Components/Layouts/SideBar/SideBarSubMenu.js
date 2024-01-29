@@ -10,7 +10,7 @@ const SideBarSubMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
     const [data, setData] = useState([]);
     useEffect(() => {
         if (authId?.data?._id) {
-            fetch(`http://localhost:5000/api/admin/role/view/${authId?.data?._id}`, {
+            fetch(`http://66.29.142.198:5000/api/admin/role/view/${authId?.data?._id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())

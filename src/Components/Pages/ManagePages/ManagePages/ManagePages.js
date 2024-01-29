@@ -14,7 +14,7 @@ const ManagePages = () => {
     const [data, setData] = useState([]);
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/frontend/home/menu/view`, {
+        fetch(`http://66.29.142.198:5000/api/frontend/home/menu/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -25,7 +25,7 @@ const ManagePages = () => {
 
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/api/admin/home/menu/delete/${id}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/home/menu/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
@@ -56,7 +56,7 @@ const ManagePages = () => {
     const handleSubmitData = event => {
         event.preventDefault();
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`http://localhost:5000/api/admin/home/menu/store`, {
+        fetch(`http://66.29.142.198:5000/api/admin/home/menu/store`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

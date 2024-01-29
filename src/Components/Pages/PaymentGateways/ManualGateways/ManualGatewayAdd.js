@@ -22,7 +22,7 @@ const ManualGatewayAdd = () => {
                 'content-type': 'application/json',
             }
         };
-        axios.post(`http://localhost:5000/api/admin/gateway/manual/store`, storeData, config)
+        axios.post(`http://66.29.142.198:5000/api/admin/gateway/manual/store`, storeData, config)
             .then(response => {
                 event.target.reset();               
                 toast.success(`${response?.data.message}`, {

@@ -9,7 +9,7 @@ const GffexAppBtn = () => {
     const handleSubmitData = event => {
         event.preventDefault();
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`http://localhost:5000/api/admin/home/gffex/app/button/store`, {
+        fetch(`http://66.29.142.198:5000/api/admin/home/gffex/app/button/store`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -59,7 +59,7 @@ const GffexAppBtn = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/frontend/home/gffex/app/btn/view`, {
+        fetch(`http://66.29.142.198:5000/api/frontend/home/gffex/app/btn/view`, {
             method: 'GET',
         })
             .then((res) => res.json())

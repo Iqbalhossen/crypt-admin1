@@ -10,7 +10,7 @@ const SingleItem = ({ index, data, handleDelete }) => {
                 <td>
                     <div className="user">
                         <div className="thumb">
-                           <Link to={data?.btn_url}> <img src={`http://localhost:5000/${data?.btn_image}`} alt='' /></Link>
+                           <Link to={data?.btn_url}> <img src={`http://66.29.142.198:5000/${data?.btn_image}`} alt='' /></Link>
                         </div>
                     </div>
                 </td>

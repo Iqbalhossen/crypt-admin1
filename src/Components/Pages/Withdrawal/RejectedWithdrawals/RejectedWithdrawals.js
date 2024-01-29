@@ -6,7 +6,7 @@ const RejectedWithdrawals = () => {
     const [data, setData] = useState([]);
     const [dataSum, setdataSum] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/withdrawal/reject`, {
+        fetch(`http://66.29.142.198:5000/api/admin/withdrawal/reject`, {
             method: 'GET',
         })
             .then((res) => res.json())

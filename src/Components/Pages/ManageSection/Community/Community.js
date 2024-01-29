@@ -37,7 +37,7 @@ const Community = () => {
                     'content-type': 'multipart/form-data',
                 }
             };
-            axios.post(`http://localhost:5000/api/admin/home/community/store`, userData, config)
+            axios.post(`http://66.29.142.198:5000/api/admin/home/community/store`, userData, config)
                 .then(response => {
                     event.target.reset();
                     toast.success(`${response?.data.message}`, {
@@ -71,7 +71,7 @@ const Community = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/frontend/home/community/view`, {
+        fetch(`http://66.29.142.198:5000/api/frontend/home/community/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -99,7 +99,7 @@ const Community = () => {
                                                 <div className="thumb">
                                                     <div className="avatar-preview">
                                                         <div className="profilePicPreview" style={{ height: '120px', width: '100%' }}>
-                                                            <img src={`http://localhost:5000/${data?.image}`} style={{ width: '100%', height: '120px' }} alt="" />
+                                                            <img src={`http://66.29.142.198:5000/${data?.image}`} style={{ width: '100%', height: '120px' }} alt="" />
                                                         </div>
                                                     </div>
                                                     <div className="avatar-edit">

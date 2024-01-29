@@ -9,7 +9,7 @@ const WithdrawalsDetails = () => {
     const [data, setData] = useState([]);
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/withdrawal/single/view/${id}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/withdrawal/single/view/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -21,7 +21,7 @@ const WithdrawalsDetails = () => {
     const userId = `${data ? data?.user_id : null}`
     const [userData, setuserData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/view/single/${userId}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/user/view/single/${userId}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -31,7 +31,7 @@ const WithdrawalsDetails = () => {
     }, [data])
 
     const handleAccept = id => {
-        fetch(`http://localhost:5000/api/admin/withdrawal/accept/${id}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/withdrawal/accept/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -54,7 +54,7 @@ const WithdrawalsDetails = () => {
             .catch(error => console.log(error));
     }
     const handleReject = id => {
-        fetch(`http://localhost:5000/api/admin/withdrawal/reject/${id}`, {
+        fetch(`http://66.29.142.198:5000/api/admin/withdrawal/reject/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

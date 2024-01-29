@@ -6,7 +6,7 @@ const AllDeposits = () => {
     const [data, setData] = useState([]);
     const [dataSum, setDataSum] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/deposit/all`, {
+        fetch(`http://66.29.142.198:5000/api/admin/deposit/all`, {
             method: 'GET',
         })
             .then((res) => res.json())
