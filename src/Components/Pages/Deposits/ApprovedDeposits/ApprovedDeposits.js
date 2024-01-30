@@ -7,7 +7,7 @@ const ApprovedDeposits = () => {
     const [data, setData] = useState([]);
     const [dataSum, setDataSum] = useState([]);
     useEffect(() => {
-        fetch(`http://66.29.142.198:5000/api/admin/deposit/accept`, {
+        fetch(`http://localhost:5000/api/admin/deposit/accept`, {
             method: 'GET',
         })
             .then((res) => res.json())

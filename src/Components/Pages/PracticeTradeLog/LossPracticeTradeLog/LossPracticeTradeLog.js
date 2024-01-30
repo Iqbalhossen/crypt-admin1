@@ -5,7 +5,7 @@ import SingleItem from '../SingleItem';
 const LossPracticeTradeLog = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://66.29.142.198:5000/api/admin/practice/trade/log/loss`, {
+        fetch(`http://localhost:5000/api/admin/practice/trade/log/loss`, {
             method: 'GET',
         })
             .then((res) => res.json())

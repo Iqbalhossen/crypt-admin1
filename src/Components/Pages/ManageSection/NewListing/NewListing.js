@@ -10,7 +10,7 @@ const NewListing = () => {
     const handleSubmitData = event => {
         event.preventDefault();
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`http://66.29.142.198:5000/api/admin/home/new/listing/store`, {
+        fetch(`http://localhost:5000/api/admin/home/new/listing/store`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -60,7 +60,7 @@ const NewListing = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://66.29.142.198:5000/api/frontend/home/new/listing/view`, {
+        fetch(`http://localhost:5000/api/frontend/home/new/listing/view`, {
             method: 'GET',
         })
             .then((res) => res.json())

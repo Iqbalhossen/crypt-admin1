@@ -10,7 +10,7 @@ const KYCData = () => {
     const [data, setData] = useState([]);
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
-        fetch(`http://66.29.142.198:5000/api/admin/kyc/details/by/user/${id}`, {
+        fetch(`http://localhost:5000/api/admin/kyc/details/by/user/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -23,7 +23,7 @@ const KYCData = () => {
 
     const handleAccept = () => {
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`http://66.29.142.198:5000/api/admin/kyc/accept/${data?._id}`, {
+        fetch(`http://localhost:5000/api/admin/kyc/accept/${data?._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -47,7 +47,7 @@ const KYCData = () => {
     }
     const handleReject = () => {
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`http://66.29.142.198:5000/api/admin/kyc/reject/${data?._id}`, {
+        fetch(`http://localhost:5000/api/admin/kyc/reject/${data?._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -101,13 +101,13 @@ const KYCData = () => {
                                     <li className="list-group-item d-flex justify-content-between align-items-center">
                                         Front Part Photo
                                         <span>
-                                            <Link to={`http://66.29.142.198:5000/${data?.front_img}`} className="me-3" target='_blank'><i className="fa fa-file"></i>  Attachment </Link>
+                                            <Link to={`http://localhost:5000/${data?.front_img}`} className="me-3" target='_blank'><i className="fa fa-file"></i>  Attachment </Link>
                                         </span>
                                     </li>
                                     <li className="list-group-item d-flex justify-content-between align-items-center">
                                         Back Part Photo
                                         <span>
-                                            <Link to={`http://66.29.142.198:5000/${data?.back_img}`} className="me-3" target='_blank'><i className="fa fa-file"></i>  Attachment </Link>
+                                            <Link to={`http://localhost:5000/${data?.back_img}`} className="me-3" target='_blank'><i className="fa fa-file"></i>  Attachment </Link>
                                         </span>
                                     </li>
                                     <li className="list-group-item d-flex justify-content-between align-items-center">

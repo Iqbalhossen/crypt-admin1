@@ -12,7 +12,7 @@ const SingleItem = ({ index, data, handleEnableDisabled, handleDelete }) => {
                 <td>
                     <div className="user">
                         <div className="thumb">
-                            <img src={`http://66.29.142.198:5000/${data?.image}`} alt='' />
+                            <img src={`http://localhost:5000/${data?.image}`} alt='' />
                         </div>
                         <span className="name"></span>
                     </div>

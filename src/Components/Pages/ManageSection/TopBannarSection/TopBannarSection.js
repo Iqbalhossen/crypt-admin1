@@ -37,7 +37,7 @@ const TopBannarSection = () => {
                     'content-type': 'multipart/form-data',
                 }
             };
-            axios.post(`http://66.29.142.198:5000/api/admin/home/video/store`, userData, config)
+            axios.post(`http://localhost:5000/api/admin/home/video/store`, userData, config)
                 .then(response => {
                     event.target.reset();
                     toast.success(`${response?.data.message}`, {
@@ -71,7 +71,7 @@ const TopBannarSection = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://66.29.142.198:5000/api/frontend/home/videos/view`, {
+        fetch(`http://localhost:5000/api/frontend/home/videos/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -101,7 +101,7 @@ const TopBannarSection = () => {
                                                     <div className="avatar-preview">
                                                         <div className="profilePicPreview" style={{ height: '120px', }}>
                                                             <video autoPlay style={{ height: 'auto', width: '100%' }}>
-                                                                <source src={`http://66.29.142.198:5000/${data?.data?.video_url}`} type="video/mp4" />
+                                                                <source src={`http://localhost:5000/${data?.data?.video_url}`} type="video/mp4" />
                                                             </video>
                                                         </div>
                                                     </div>

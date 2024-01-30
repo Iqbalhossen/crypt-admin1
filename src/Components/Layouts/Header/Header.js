@@ -37,7 +37,7 @@ const Header = () => {
 
       useEffect(() => {
         if(authUser?._id){
-            fetch(`http://66.29.142.198:5000/api/admin/role/view/${authUser?._id}`, {
+            fetch(`http://localhost:5000/api/admin/role/view/${authUser?._id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
@@ -103,7 +103,7 @@ const Header = () => {
                                 <span className="navbar-user">
                                     <span className="navbar-user__thumb"><img
                                         src={data?.picture ?
-                                            `http://66.29.142.198:5000/${data?.picture}`
+                                            `http://localhost:5000/${data?.picture}`
                                             :
                                             'https://gffexvip.biz/assets/admin/images/profile/6415c7db489ed1679149019.png'
                                             

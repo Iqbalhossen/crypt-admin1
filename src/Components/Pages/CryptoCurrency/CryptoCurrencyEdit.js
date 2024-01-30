@@ -30,7 +30,7 @@ const CryptoCurrencyEdit = () => {
         };
         if (image) {        
             const userData = { ...dataVulue, image: image };
-            axios.put(`http://66.29.142.198:5000/api/admin/crypto/currency/update/${id}`, userData, config)
+            axios.put(`http://localhost:5000/api/admin/crypto/currency/update/${id}`, userData, config)
                 .then(response => {
                     event.target.reset();
                     toast.success(`${response?.data.message}`, {
@@ -52,7 +52,7 @@ const CryptoCurrencyEdit = () => {
 
         } else {
             const userData = { ...dataVulue };
-            axios.put(`http://66.29.142.198:5000/api/admin/crypto/currency/update/${id}`, userData, config)
+            axios.put(`http://localhost:5000/api/admin/crypto/currency/update/${id}`, userData, config)
                 .then(response => {
                     event.target.reset();
                     toast.success(`${response?.data.message}`, {

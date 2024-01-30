@@ -22,7 +22,7 @@ const AdminPrivateRoute = ({children}) => {
     
         useEffect(() => {
             if(adminData?._id){
-                fetch(`http://66.29.142.198:5000/api/admin/role/view/${adminData?._id}`, {
+                fetch(`http://localhost:5000/api/admin/role/view/${adminData?._id}`, {
                     method: 'GET',
                 })
                     .then((res) => res.json())

@@ -15,7 +15,7 @@ const CommunityBtn = () => {
     const [data, setData] = useState([]);
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
-        fetch(`http://66.29.142.198:5000/api/frontend/home/community/btn/view`, {
+        fetch(`http://localhost:5000/api/frontend/home/community/btn/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -26,7 +26,7 @@ const CommunityBtn = () => {
 
 
     const handleDelete = id => {
-        fetch(`http://66.29.142.198:5000/api/admin/home/community/button/delete/${id}`, {
+        fetch(`http://localhost:5000/api/admin/home/community/button/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
@@ -80,7 +80,7 @@ const CommunityBtn = () => {
                     'content-type': 'multipart/form-data',
                 }
             };
-            axios.post(`http://66.29.142.198:5000/api/admin/home/community/button/store`, userData, config)
+            axios.post(`http://localhost:5000/api/admin/home/community/button/store`, userData, config)
             .then(response => {
                 event.target.reset();
                 handleClose()

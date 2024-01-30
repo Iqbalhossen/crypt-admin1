@@ -12,7 +12,7 @@ const Staff = () => {
         const [data, setData] = useState([]);
     
         useEffect(() => {
-            fetch(`http://66.29.142.198:5000/api/admin/role/view`, {
+            fetch(`http://localhost:5000/api/admin/role/view`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
@@ -23,7 +23,7 @@ const Staff = () => {
     
     
         const handleDelete = id => {
-            fetch(`http://66.29.142.198:5000/api/admin/role/delete/${id}`, {
+            fetch(`http://localhost:5000/api/admin/role/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json',

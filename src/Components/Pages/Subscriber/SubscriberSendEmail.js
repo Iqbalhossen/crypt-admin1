@@ -20,7 +20,7 @@ const SubscriberSendEmail = () => {
                 'content-type': 'application/json',
             }
         };
-        axios.post(`http://66.29.142.198:5000/api/admin/subscriber/manager/email/send`, storeData, config)
+        axios.post(`http://localhost:5000/api/admin/subscriber/manager/email/send`, storeData, config)
             .then(response => {
                 event.target.reset();
                 toast.success(`${response?.data.message}`, {

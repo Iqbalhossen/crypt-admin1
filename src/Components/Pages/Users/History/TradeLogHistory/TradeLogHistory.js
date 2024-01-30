@@ -6,7 +6,7 @@ const TradeLogHistory = () => {
     const {id} = useParams();
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://66.29.142.198:5000/api/admin/user/trade/log/all/${id}`, {
+        fetch(`http://localhost:5000/api/admin/user/trade/log/all/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())

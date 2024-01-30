@@ -6,7 +6,7 @@ const TradeLogAll = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://66.29.142.198:5000/api/admin/trade/log/all`, {
+        fetch(`http://localhost:5000/api/admin/trade/log/all`, {
             method: 'GET',
         })
             .then((res) => res.json())

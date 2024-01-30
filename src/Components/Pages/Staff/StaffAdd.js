@@ -35,7 +35,7 @@ const StaffAdd = () => {
                 'content-type': 'application/json',
             }
         };
-        axios.post(`http://66.29.142.198:5000/api/admin/role/store`, StoreData, config)
+        axios.post(`http://localhost:5000/api/admin/role/store`, StoreData, config)
             .then(response => {
                 event.target.reset();
                 toast.success(`${response?.data.message}`, {

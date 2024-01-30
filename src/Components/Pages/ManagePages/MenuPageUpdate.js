@@ -14,7 +14,7 @@ const MenuPageUpdate = () => {
     const refSubmitDis = useRef();
 
     useEffect(() => {
-        fetch(`http://66.29.142.198:5000/api/admin/home/menu/edit/${id}`, {
+        fetch(`http://localhost:5000/api/admin/home/menu/edit/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -26,7 +26,7 @@ const MenuPageUpdate = () => {
     const handleSubmitData = event => {
         refSubmitDis.current.setAttribute("disabled", true);
         event.preventDefault();
-        fetch(`http://66.29.142.198:5000/api/admin/home/menu/update/${id}`, {
+        fetch(`http://localhost:5000/api/admin/home/menu/update/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -78,7 +78,7 @@ const MenuPageUpdate = () => {
     const [menuPageData, setMenuPageData] = useState([])
 
     useEffect(() => {
-        fetch(`http://66.29.142.198:5000/api/admin/menu/page/view/${id}`, {
+        fetch(`http://localhost:5000/api/admin/menu/page/view/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
