@@ -6,7 +6,7 @@ const WinTradeLogHistory = () => {
     const {id} = useParams();
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/trade/log/win/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/user/trade/log/win/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())

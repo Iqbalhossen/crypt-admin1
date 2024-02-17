@@ -6,7 +6,7 @@ const PendingWithdrawals = () => {
     const [dataSum, setdataSum] = useState([]);
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/withdrawal/pending`, {
+        fetch(`https://gffex.xyz/api/admin/withdrawal/pending`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -54,27 +54,26 @@ const PendingWithdrawals = () => {
                     </div>
                 </div>
 
-                <div className="col-lg-12">
-                    <div className="card b-radius-10 ">
-                        <div className="card-body p-0">
-
-                            <div className="table-responsive-sm table-responsive">
-                                <table className="table table-light style-two mb-0">
+                <div class="col-md-12">
+                    <div class="card b-radius--10">
+                        <div class="card-body p-0">
+                            <div class="table-responsive--sm table-responsive">
+                                <table class="table table--light style--two mb-0" >
                                     <thead>
                                         <tr>
                                             <th>Gateway | Transaction</th>
                                             <th>Initiated</th>
-                                            <th>User</th>
+                                            <th>Full Name</th>
                                             <th>Amount</th>
                                             <th>Conversion</th>
                                             <th>Status</th>
                                             <th>Action</th>
-
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {data.length !== 0 ?
                                             data.map((data, index) => {
+                                                console.log(data)
                                                 if (data) {
                                                     return (
                                                         <SingleItem data={data} index={index} key={data._id} ></SingleItem>
@@ -82,39 +81,13 @@ const PendingWithdrawals = () => {
                                                 }
                                             }) :
                                             <tr>
-                                                <td classNameName="text-muted text-center" colSpan="100%">Data not found</td>
+                                                <td className="text-muted text-center" colspan="100%">Data not found</td>
                                             </tr>}
-
 
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        {/* <div className="card-footer py-4">
-                            <nav className="d-flex justify-content-end">
-                                <ul className="pagination">
-
-                                    <li className="page-item disabled" aria-disabled="true" aria-label="« Previous">
-                                        <span className="page-link" aria-hidden="true">‹</span>
-                                    </li>
-
-
-
-
-
-                                    <li className="page-item active" aria-current="page"><span className="page-link">1</span></li>
-                                    <li className="page-item"><a className="page-link" href="https://gffexvip.biz/admin/withdraw/log?page=2">2</a></li>
-                                    <li className="page-item"><a className="page-link" href="https://gffexvip.biz/admin/withdraw/log?page=3">3</a></li>
-                                    <li className="page-item"><a className="page-link" href="https://gffexvip.biz/admin/withdraw/log?page=4">4</a></li>
-
-
-                                    <li className="page-item">
-                                        <a className="page-link" href="https://gffexvip.biz/admin/withdraw/log?page=2" rel="next" aria-label="Next »">›</a>
-                                    </li>
-                                </ul>
-                            </nav>
-
-                        </div> */}
                     </div>
                 </div>
             </div>

@@ -4,7 +4,7 @@ import SingleItem from '../SingleItem';
 const KYCUnverifiedUsers = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/view/unverify/kyc`, {
+        fetch(`https://gffex.xyz/api/admin/user/view/unverify/kyc`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -15,7 +15,7 @@ const KYCUnverifiedUsers = () => {
     return (
         <>
             <div class="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-                <h6 class="page-title">Mobile Unverified Users</h6>
+                <h6 class="page-title">KYC Unverified Users</h6>
                 <div class="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
                     <form action="" method="GET" class="d-flex flex-wrap gap-2 search-form">
                         <div class="input-group w-auto flex-fill">
@@ -35,8 +35,9 @@ const KYCUnverifiedUsers = () => {
                                 <table class="table table--light style--two">
                                     <thead>
                                         <tr>
-                                        <th>User</th>
-                                            <th>Email-Phone</th>
+                                            <th>Full Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
                                             <th>Password</th>
                                             <th>Country</th>
                                             <th>Joined At</th>
@@ -45,7 +46,7 @@ const KYCUnverifiedUsers = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    {data.length !== 0 ?
+                                        {data.length !== 0 ?
                                             data.map((data, index) => {
                                                 if (data) {
                                                     return (
@@ -57,12 +58,12 @@ const KYCUnverifiedUsers = () => {
                                                 <td className="text-muted text-center" colspan="100%">Data not found</td>
                                             </tr>}
 
-                                 
+
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                      
+
                     </div>
                 </div>
 

@@ -9,7 +9,7 @@ const TransactionLogs = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/report/view`, {
+        fetch(`https://gffex.xyz/api/admin/report/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -45,13 +45,13 @@ const TransactionLogs = () => {
 
     const handleSubmitData = event => {
         event.preventDefault();
-        // refSubmitDis.current.setAttribute("disabled", true);
+        refSubmitDis.current.setAttribute("disabled", true);
         const config = {
             headers: {
                 'content-type': 'application/json',
             }
         };
-        axios.get(`http://localhost:5000/api/admin/report/view?search=${nameFilter}&trx_type=${trx_typeFilter}&remark=${Remark}&start_date=${dateValue[0]}&end_date=${dateValue[1]}`, config)
+        axios.get(`https://gffex.xyz/api/admin/report/view?search=${nameFilter}&trx_type=${trx_typeFilter}&remark=${Remark}&start_date=${dateValue[0]}&end_date=${dateValue[1]}`, config)
             .then(response => {
                 toast.success(`${response?.data.message}`, {
                     position: "top-right",
@@ -64,15 +64,13 @@ const TransactionLogs = () => {
                     theme: "colored",
                 });
                 setData(response.data.data)
-                console.log(response.data)
-                // refSubmitDis.current.removeAttribute("disabled");
+                refSubmitDis.current.removeAttribute("disabled");
             }).catch((error) => {
-                // refSubmitDis.current.removeAttribute("disabled");
+                refSubmitDis.current.removeAttribute("disabled");
             });
 
     }
 
-    console.log(dateValue)
 
     const { RangePicker } = DatePicker;
 
@@ -114,7 +112,7 @@ const TransactionLogs = () => {
                                 <form onSubmit={handleSubmitData}>
                                     <div className="d-flex flex-wrap gap-4">
                                         <div className="flex-grow-1">
-                                            <label>TRX/Username</label>
+                                            <label>TRX</label>
                                             <input type="text" name="search" className="form-control" id="search" value={nameFilter}
                                                 onChange={(e) => setNameFilter(e.currentTarget.value)} />
                                         </div>
@@ -146,7 +144,7 @@ const TransactionLogs = () => {
                                             {/* <input name="date" type="text"  placeholder="Start date - End date" autocomplete="off" value="" id="date" /> */}
                                         </div>
                                         <div className="flex-grow-1 align-self-end">
-                                            <button className="btn btn-primary w-100 h-45"><i className="fas fa-filter"></i> Filter</button>
+                                            <button ref={refSubmitDis} className="btn btn-primary w-100 h-45"><i className="fas fa-filter"></i> Filter</button>
                                         </div>
                                     </div>
                                 </form>

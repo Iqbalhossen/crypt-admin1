@@ -16,7 +16,7 @@ const Notices = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/frontend/home/notices/view`, {
+        fetch(`https://gffex.xyz/api/frontend/home/notices/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -27,7 +27,7 @@ const Notices = () => {
 
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/api/admin/home/notice/delete/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/home/notice/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
@@ -47,7 +47,7 @@ const Notices = () => {
     const handleSubmitData = event => {
         event.preventDefault();
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`http://localhost:5000/api/admin/home/notice/store`, {
+        fetch(`https://gffex.xyz/api/admin/home/notice/store`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -101,7 +101,7 @@ const Notices = () => {
     return (
         <>
               <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-                <h6 className="page-title">Slider List</h6>
+                <h6 className="page-title">Notices List</h6>
                 <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
                     <form action="" method="GET" className="d-flex flex-wrap gap-2 search-form">
                         <div className="input-group w-auto flex-fill">

@@ -4,7 +4,7 @@ import SingleItem from '../SingleItem';
 const MobileUnverified = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/view/unverify/mobile`, {
+        fetch(`https://gffex.xyz/api/admin/user/view/unverify/mobile`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -35,8 +35,9 @@ const MobileUnverified = () => {
                                 <table class="table table--light style--two">
                                     <thead>
                                         <tr>
-                                        <th>User</th>
-                                            <th>Email-Phone</th>
+                                        <th>Full Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
                                             <th>Password</th>
                                             <th>Country</th>
                                             <th>Joined At</th>

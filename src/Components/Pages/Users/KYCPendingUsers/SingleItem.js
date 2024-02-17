@@ -6,14 +6,17 @@ const SingleItem = ({ data, index }) => {
         <>
             <tr>
                 <td data-label="User">
-                    <span className="fw-bold">{data?.name}</span>
+                    <span className="fw-bold">{data?.fname} {data?.lname}</span>
                     <br />
 
                 </td>
 
 
-                <td data-label="Email-Phone">
+                <td data-label="Phone">
                     {data?.email}
+                </td>
+                <td data-label="Phone">
+                    {data?.mobile}
                 </td>
 
                 <td data-label="Password">

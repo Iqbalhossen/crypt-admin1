@@ -6,19 +6,19 @@ const SingleItem = ({ data, index, handleEnableDisabled }) => {
 
     return (
         <>
-            <tr>
+            <tr data-label="S.N.">
                 <td>{index + 1}</td>
-                <td>
+                <td data-label="Gateway">
                     <span className="d-block"> {data?.GatewayName}</span>
                 </td>              
-                <td>
+                <td data-label="Status">
                     {data?.Status === 1 ?
                         <span class="badge badge--success text-success">Enabled</span>
                         :
                         <span><span class="badge badge--warning text-warning">Disabled</span></span>
                     }
                 </td>
-                <td>
+                <td data-label="Active">
                     <div class="button-group">
                         <Link to={`/admin/gateway/manual/edit/${data._id}`} class="btn btn-sm btn-outline-primary editGatewayBtn">
                             <i class="la la-pencil"></i> Edit

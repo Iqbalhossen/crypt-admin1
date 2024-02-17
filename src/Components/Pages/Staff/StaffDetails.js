@@ -6,7 +6,7 @@ const StaffDetails = () => {
     const { id } = useParams();
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/role/view/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/role/view/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())

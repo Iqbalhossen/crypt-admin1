@@ -10,20 +10,22 @@ const KYCData = () => {
     const [data, setData] = useState([]);
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/kyc/details/by/user/${id}`, {
-            method: 'GET',
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                setData(data.data)
+        if(id){
+            fetch(`https://gffex.xyz/api/admin/kyc/details/by/user/${id}`, {
+                method: 'GET',
             })
-    }, [updateData])
+                .then((res) => res.json())
+                .then((data) => {
+                    setData(data.data)
+                })
+        }
+    }, [id, updateData])
 
     const refSubmitDis = useRef();
 
     const handleAccept = () => {
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`http://localhost:5000/api/admin/kyc/accept/${data?._id}`, {
+        fetch(`https://gffex.xyz/api/admin/kyc/accept/${data?._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -47,7 +49,7 @@ const KYCData = () => {
     }
     const handleReject = () => {
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`http://localhost:5000/api/admin/kyc/reject/${data?._id}`, {
+        fetch(`https://gffex.xyz/api/admin/kyc/reject/${data?._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -71,6 +73,21 @@ const KYCData = () => {
             .catch(error => refSubmitDis.current.removeAttribute("disabled"));
     }
 
+    const [userData, setUserData] = useState([]);
+    const [userUpdateData, setuserUpdateData] = useState({});
+
+
+    useEffect(() => {
+        fetch(`https://gffex.xyz/api/admin/user/view/single/${id}`, {
+            method: 'GET',
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                setUserData(data.data)
+            })
+    }, [userUpdateData])
+
+console.log(data)
     return (
         <>
             <div className="bodywrapper__inner">
@@ -89,7 +106,7 @@ const KYCData = () => {
                                     <li className="list-group-item d-flex justify-content-between align-items-center">
                                         Full Name
                                         <span>
-                                            <p>{data?.user_name}</p>
+                                            <p>{userData?.fname} {userData?.lname}</p>
                                         </span>
                                     </li>
                                     <li className="list-group-item d-flex justify-content-between align-items-center">
@@ -101,19 +118,19 @@ const KYCData = () => {
                                     <li className="list-group-item d-flex justify-content-between align-items-center">
                                         Front Part Photo
                                         <span>
-                                            <Link to={`http://localhost:5000/${data?.front_img}`} className="me-3" target='_blank'><i className="fa fa-file"></i>  Attachment </Link>
+                                            <Link to={`https://gffex.xyz/${data?.front_img}`} className="me-3" target='_blank'><i className="fa fa-file"></i>  Attachment </Link>
                                         </span>
                                     </li>
                                     <li className="list-group-item d-flex justify-content-between align-items-center">
                                         Back Part Photo
                                         <span>
-                                            <Link to={`http://localhost:5000/${data?.back_img}`} className="me-3" target='_blank'><i className="fa fa-file"></i>  Attachment </Link>
+                                            <Link to={`https://gffex.xyz/${data?.back_img}`} className="me-3" target='_blank'><i className="fa fa-file"></i>  Attachment </Link>
                                         </span>
                                     </li>
                                     <li className="list-group-item d-flex justify-content-between align-items-center">
                                         Live Photo
                                         <span>
-                                            <a href={data?.user_img} className="me-3" target='_blank'><i className="fa fa-file"></i>  Attachment </a>
+                                            <Link to={data?.user_img} className="me-3" target='_blank'><i className="fa fa-file"></i>  Attachment </Link>
                                         </span>
                                     </li>
                                     {/* <li className="list-group-item d-flex justify-content-between align-items-center">

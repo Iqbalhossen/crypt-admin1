@@ -97,6 +97,16 @@ import SupportClosedTickets from './Components/Pages/SupportTicket/SupportClosed
 import SupportTicketAnswered from './Components/Pages/SupportTicket/SupportTicketAnswered/SupportTicketAnswered';
 import SupportTicketAll from './Components/Pages/SupportTicket/SupportTicketAll/SupportTicketAll';
 import SupportTicketDetails from './Components/Pages/SupportTicket/SupportTicketDetails/SupportTicketDetails';
+import LiveChats from './Components/Pages/LiveChat/LiveChats/LiveChats';
+import FixedDepositView from './Components/Pages/FixedDeposit/FixedDepositView';
+import FixedDepositAdd from './Components/Pages/FixedDeposit/FixedDepositAdd';
+import FixedDepositEdit from './Components/Pages/FixedDeposit/FixedDepositEdit';
+import MiningView from './Components/Pages/Mining/MiningView';
+import MiningAdd from './Components/Pages/Mining/MiningAdd';
+import MiningEdit from './Components/Pages/Mining/MiningEdit';
+import PendingLoan from './Components/Pages/Loan/PendingLoan';
+import AprovedNow from './Components/Pages/Loan/AprovedNow';
+import SocialSupport from './Components/Pages/SupportTicket/SocialSupport/SocialSupport';
 
 
 function App() {
@@ -193,12 +203,24 @@ function App() {
           <Route path="ticket/answered" element={<SupportTicketAnswered />} />
           <Route path="ticket" element={<SupportTicketAll />} />
           <Route path="ticket/view/:id" element={<SupportTicketDetails />} />
+          <Route path="fixed/deposit/view" element={<FixedDepositView />} />
+          <Route path="fixed/deposit/add" element={<FixedDepositAdd />} />
+          <Route path="fixed/deposit/edit/:id" element={<FixedDepositEdit />} />
+          <Route path="mining/view" element={<MiningView />} />
+          <Route path="mining/add" element={<MiningAdd />} />
+          <Route path="mining/edit/:id" element={<MiningEdit />} />
+          <Route path="pending/loan" element={<PendingLoan />} />
+          <Route path="aproved/loan/:id" element={<AprovedNow />} />
+          <Route path="social/support" element={<SocialSupport />} />
+         
         </Route>
 
         
         <Route path="/" element={<LoginRoute><Login /></LoginRoute> } />
         <Route path="/admin/password/reset" element={<LoginRoute><Reset /></LoginRoute> } />
         <Route path="/reset/password/:id/:token" element={<LoginRoute> <ReSetPassword /> </LoginRoute>} />
+
+        <Route path="chats/live" element={<LiveChats />} />
       </Routes>
       
     </BrowserRouter>

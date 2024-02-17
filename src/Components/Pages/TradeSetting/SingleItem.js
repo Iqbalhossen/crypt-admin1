@@ -5,11 +5,11 @@ const SingleItem = ({ index, data, handleDelete }) => {
     return (
         <>
             <tr>
-                <td > {index + 1}</td>
-                <td>{data?.Time}</td>
-                <td >{data.Unit}</td>
-                <th>{data.Profit} %</th>
-                <td >
+                <td data-label="S.N."> {index + 1}</td>
+                <td data-label="Time">{data?.Time}</td>
+                <td data-label="Unit">{data.Unit}</td>
+                <th data-label="Profit %">{data.Profit} %</th>
+                <td data-label="Action">
                     <Link to={`/admin/trade/setting/edit/${data._id}`} className="btn btn-sm btn-outline-primary editBtn">
                         <i className="la la-pencil"></i>Edit
                     </Link>

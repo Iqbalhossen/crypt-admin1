@@ -6,20 +6,22 @@ import { Link } from 'react-router-dom';
 const SingleItem = ({ data, index }) => {
     const [userData, setuserData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/view/single/${data?.user_id}`, {
-            method: 'GET',
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                setuserData(data.data)
+        if(data?.user_id){
+            fetch(`https://gffex.xyz/api/admin/user/view/single/${data?.user_id}`, {
+                method: 'GET',
             })
+                .then((res) => res.json())
+                .then((data) => {
+                    setuserData(data.data)
+                })
+        }
     }, [])
     return (
 
         <>
             <tr>
                 <td data-label="Gateway | Transaction">
-                    <span class="fw-bold"><a href="https://gffexvip.biz/admin/withdraw/log?method=2"> {data?.GatewayName}</a></span>
+                    <span class="fw-bold"><Link to="/admin/withdraw/method"> {data?.GatewayName}</Link></span>
                     <br />
                     <small>{data?.Transaction}</small>
                 </td>
@@ -28,9 +30,9 @@ const SingleItem = ({ data, index }) => {
                     {/* <br />  1 week ago */}
                 </td>
 
-                <td data-label="User">
+                <td data-label="Full Name">
                     <Link to={`/admin/users/details/${userData?._id}`}>
-                        <span class="fw-bold">{userData.name}</span>
+                        <span class="fw-bold">{userData.fname} {userData.lname}</span>
                     </Link>
                 </td>
 

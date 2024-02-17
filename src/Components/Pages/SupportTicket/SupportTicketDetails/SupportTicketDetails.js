@@ -13,7 +13,7 @@ const SupportTicketDetails = () => {
     const [updateData, setUpdateData] = useState([]);
     const [messageData, setMessageData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/support/tickets/view/details/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/support/tickets/view/details/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -56,7 +56,7 @@ const SupportTicketDetails = () => {
                 }
             };
             axios
-                .post(`http://localhost:5000/api/admin/support/tickets/message/${id}`, storeData, config)
+                .post(`https://gffex.xyz/api/admin/support/tickets/message/${id}`, storeData, config)
                 .then(data => {
                     event.target.reset();
                     toast.success(`${data.data.message}`, {
@@ -84,7 +84,7 @@ const SupportTicketDetails = () => {
                 }
             };
             axios
-                .post(`http://localhost:5000/api/admin/support/tickets/message/${id}`, storeData, config)
+                .post(`https://gffex.xyz/api/admin/support/tickets/message/${id}`, storeData, config)
                 .then(data => {
                     event.target.reset();
                     toast.success(`${data.data.message}`, {
@@ -108,7 +108,7 @@ const SupportTicketDetails = () => {
     }
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/api/admin/support/tickets/message/delete/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/support/tickets/message/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
@@ -131,7 +131,7 @@ const SupportTicketDetails = () => {
             .catch(error => console.log(error));
     }
     const handleSupportTicketsClose = () => {
-        fetch(`http://localhost:5000/api/admin/support/tickets/close/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/support/tickets/close/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -177,19 +177,19 @@ const SupportTicketDetails = () => {
                                     <div className="row">
                                         <div className="col-sm-8 col-md-6">
                                             {data?.status === 0 ?
-                                                <span classNameName="badge badge--dark text-dark me-2">Open</span>
+                                                <span className="badge badge--dark text-dark me-2">Open</span>
 
                                                 : ''}
                                             {data?.status === 1 ?
-                                                <span classNameName="badge badge--dark text-dark me-2">Answered</span>
+                                                <span className="badge badge--dark text-dark me-2">Answered</span>
 
                                                 : ''}
                                             {data?.status === 2 ?
-                                                <span classNameName="badge badge--dark text-dark me-2">Replied</span>
+                                                <span className="badge badge--dark text-dark me-2">Replied</span>
 
                                                 : ''}
                                             {data?.status === 3 ?
-                                                <span classNameName="badge badge--dark text-dark me-2">Closed</span>
+                                                <span className="badge badge--dark text-dark me-2">Closed</span>
 
                                                 : ''}
                                             [Ticket#{data?.ticket}] {data?.subject}
@@ -260,7 +260,7 @@ const SupportTicketDetails = () => {
                                             }
                                         }) :
                                         <tr>
-                                            <td classNameName="text-muted text-center" colspan="100%">Data not found</td>
+                                            <td className="text-muted text-center" colspan="100%">Data not found</td>
                                         </tr>}
 
                                 </div>

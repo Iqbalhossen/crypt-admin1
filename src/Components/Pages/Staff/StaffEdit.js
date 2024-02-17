@@ -39,7 +39,7 @@ const StaffEdit = () => {
                 'content-type': 'application/json',
             }
         };
-        axios.put(`http://localhost:5000/api/admin/role/update/${id}`, StoreData, config)
+        axios.put(`https://gffex.xyz/api/admin/role/update/${id}`, StoreData, config)
             .then(response => {
                 event.target.reset();
                 toast.success(`${response?.data.message}`, {
@@ -63,7 +63,7 @@ const StaffEdit = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/role/view/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/role/view/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())

@@ -9,7 +9,7 @@ const Home = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/dashboard/view`, {
+        fetch(`https://gffex.xyz/api/admin/dashboard/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -20,6 +20,12 @@ const Home = () => {
 
     return (
         <>
+            <Link to='/admin/fixed/deposit/view' className="btn btn-primary me-3"> fixed deposit view </Link>
+            <Link to='/admin/mining/view' className="btn btn-primary me-3">mining </Link>
+            <Link to='/admin/pending/loan' className="btn btn-primary me-3">Pending Loan</Link>
+            <Link to='/admin/social/support' className="btn btn-primary me-3">Social Support </Link>
+            <Link to='/chats/live' className="btn btn-primary me-3" target='_blank'>Live Chat </Link>
+
 
             <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
                 <h6 className="page-title">Dashboard</h6>
@@ -30,7 +36,7 @@ const Home = () => {
             <div className="row gy-4">
                 <div className="col-xxl-3 col-sm-6">
                     <div className="card bg--primary overflow-hidden box--shadow2">
-                        <Link to='/admin/users/all'  className="item-link"></Link>
+                        <Link to='/admin/users/all' className="item-link"></Link>
                         <div className="card-body">
                             <div className="row align-items-center">
                                 <div className="col-4">
@@ -300,7 +306,7 @@ const Home = () => {
                 </div>
             </div>
             <MonthReportChart data={data}></MonthReportChart>
-            
+
         </>
     );
 };

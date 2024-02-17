@@ -5,9 +5,9 @@ const SingleItem = ({ data, index, handleDelete }) => {
     return (
         <>
             <tr>
-                <td >{data.name}</td>
-                <td >{data.slug}</td>
-                <td >
+                <td data-label="Name">{data.name}</td>
+                <td data-label="Slug">{data.slug}</td>
+                <td data-label="Action">
                     <div className="button-group">
                         <Link to={`/admin/frontend/manage-section/${data?._id}`} className="btn btn-sm btn-outline-primary"><i className="la la-pen"></i> Edit</Link>
                         <button className="btn btn-sm btn-outline-danger confirmationBtn" onClick={() => handleDelete(data._id)} >

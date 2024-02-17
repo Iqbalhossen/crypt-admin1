@@ -17,7 +17,7 @@ const WithdrawalMethodsEdit = () => {
     const [results, setResults] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/withdrawal/methods/edit/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/withdrawal/methods/edit/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -36,7 +36,7 @@ const WithdrawalMethodsEdit = () => {
                 'content-type': 'application/json',
             }
         };
-        axios.put(`http://localhost:5000/api/admin/withdrawal/methods/update/${id}`, storeData, config)
+        axios.put(`https://gffex.xyz/api/admin/withdrawal/methods/update/${id}`, storeData, config)
             .then(response => {
                 toast.success(`${response?.data.message}`, {
                     position: "top-right",

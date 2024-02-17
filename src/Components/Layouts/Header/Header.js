@@ -1,43 +1,44 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthContext/AuthProvider';
+import SideBar from '../SideBar/SideBar';
 
 const Header = () => {
-    const {LoginWithEmail,  authUser, authId } = useContext(AuthContext);
+    const { LoginWithEmail, authUser, authId } = useContext(AuthContext);
     const [isOpen, setIsopen] = useState(false);
 
     const ToggleSidebar = () => {
-      isOpen === true ? setIsopen(false) : setIsopen(true);
+        isOpen === true ? setIsopen(false) : setIsopen(true);
     }
 
     const location = useLocation();
     const from = "/";
     const navigate = useNavigate();
     const [remove, setremove] = useState(false);
-   
-  
+
+
     const SignOut = () => {
-      document.cookie = `gffex_admin_token=; expires=${new Date(0).toUTCString()};`;
-      localStorage.removeItem("gffex_admin_ID");
-      const data = null;
-      LoginWithEmail(data);
-      if (authUser === null) {
-        navigate(from, { replace: true });
-      }
-      setremove(true)
+        document.cookie = `gffex_admin_token=; expires=${new Date(0).toUTCString()};`;
+        localStorage.removeItem("gffex_admin_ID");
+        const data = null;
+        LoginWithEmail(data);
+        if (authUser === null) {
+            navigate(from, { replace: true });
+        }
+        setremove(true)
     }
     const logout = localStorage.getItem("gffex_admin_ID");;
     useEffect(() => {
         if (!logout && remove === true) {
-          navigate(from, { replace: true });
+            navigate(from, { replace: true });
         }
-      }, [remove])
+    }, [remove])
 
-      const [data, setData] = useState([])
+    const [data, setData] = useState([])
 
-      useEffect(() => {
-        if(authUser?._id){
-            fetch(`http://localhost:5000/api/admin/role/view/${authUser?._id}`, {
+    useEffect(() => {
+        if (authUser?._id) {
+            fetch(`https://gffex.xyz/api/admin/role/view/${authUser?._id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
@@ -45,14 +46,24 @@ const Header = () => {
                     setData(data.data);
                 })
         }
-      
-    }, [authUser])
+
+    }, [authUser]);
+
     
+    const [menuSHow, setMenuShow] = useState(false);
+
+    const handleShow = () =>{
+       
+        setMenuShow(true)
+        // menuRef.current.style.left = "0px !important";
+    }
+    
+    // 
     return (
         <>
-            <nav className="navbar-wrapper bg--dark">
+            <nav className="navbar-wrapper bg--dark" >
                 <div className="navbar__left">
-                    <button type="button" className="res-sidebar-open-btn me-3"><i className="las la-bars"></i></button>
+                    <button className="res-sidebar-open-btn me-3" onClick={handleShow}><i className="las la-bars"></i></button>
                     <form className="navbar-search">
                         <input type="search" name="#0" className="navbar-search-field" id="searchInput" autoComplete="off"
                             placeholder="Search here..." />
@@ -103,10 +114,10 @@ const Header = () => {
                                 <span className="navbar-user">
                                     <span className="navbar-user__thumb"><img
                                         src={data?.picture ?
-                                            `http://localhost:5000/${data?.picture}`
+                                            `https://gffex.xyz/${data?.picture}`
                                             :
                                             'https://gffexvip.biz/assets/admin/images/profile/6415c7db489ed1679149019.png'
-                                            
+
                                         }
                                         alt="" /></span>
                                     <span className="navbar-user__info">
@@ -129,7 +140,7 @@ const Header = () => {
                                     <span className="dropdown-menu__caption">Password</span>
                                 </Link>
 
-                                <button  onClick={SignOut}
+                                <button onClick={SignOut}
                                     className="dropdown-menu__item d-flex align-items-center px-3 py-2">
                                     <i className="dropdown-menu__icon las la-sign-out-alt text-dark"></i>
                                     <span className="dropdown-menu__caption">Logout</span>
@@ -139,6 +150,11 @@ const Header = () => {
                     </ul>
                 </div>
             </nav>
+
+
+
+         <SideBar menuSHow={menuSHow} setMenuShow={setMenuShow} />
+
         </>
     );
 };

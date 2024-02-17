@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import dateFormat from "dateformat";
 const SingleItem = ({ data, index }) => {
+
+    const [userData, setuserData] = useState([]);
+    useEffect(() => {
+        if(data?.user_id){
+            fetch(`https://gffex.xyz/api/admin/user/view/single/${data?.user_id}`, {
+                method: 'GET',
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    setuserData(data.data)
+                })
+        }
+      
+    }, [])
+
     return (
         <>
             <tr>
@@ -10,7 +25,7 @@ const SingleItem = ({ data, index }) => {
                 </td>
 
                 <td data-label="Submitted By">
-                    <p className="fw-bold"> {data?.name}</p>
+                    <p className="fw-bold"> {userData?.fname} {userData?.lname}</p>
                 </td>
                 <td data-label="Status">
                     {data?.status === 0 ?

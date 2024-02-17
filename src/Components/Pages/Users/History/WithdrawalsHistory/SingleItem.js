@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom';
 const SingleItem = ({ data, index }) => {
     const [userData, setuserData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/view/single/${data?.user_id}`, {
-            method: 'GET',
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                setuserData(data.data)
+        if(data?.user_id){
+            fetch(`https://gffex.xyz/api/admin/user/view/single/${data?.user_id}`, {
+                method: 'GET',
             })
+                .then((res) => res.json())
+                .then((data) => {
+                    setuserData(data.data)
+                })
+        }
     }, [])
     return (
         <>
@@ -26,7 +28,7 @@ const SingleItem = ({ data, index }) => {
                     {/* <br />2 weeks ago */}
                 </td>
                 <td data-label="User">
-                    <span className="fw-bold">{userData.name}</span>
+                    <span className="fw-bold">{userData.fname} {userData.lname}</span>
 
                 </td>
                 <td data-label="Amount">

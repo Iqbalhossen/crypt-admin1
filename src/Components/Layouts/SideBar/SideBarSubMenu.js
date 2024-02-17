@@ -4,13 +4,13 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthContext/AuthProvider';
 import { useContext } from 'react';
 
-const SideBarSubMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
+const SideBarSubMenu = ({ route, showAnimation, isOpen, setIsOpen, setMobileMenu }) => {
     const { authUser, authId } = useContext(AuthContext);
     const [AdminData, setAdminData] = useState([]);
     const [data, setData] = useState([]);
     useEffect(() => {
         if (authId?.data?._id) {
-            fetch(`http://localhost:5000/api/admin/role/view/${authId?.data?._id}`, {
+            fetch(`https://gffex.xyz/api/admin/role/view/${authId?.data?._id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
@@ -76,7 +76,7 @@ const SideBarSubMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
                             {route.subRoutes.map((subRoute, i) => (
                                 <li className="sidebar-menu-item menuActive">
                                     <li className="sidebar-menu-item menuActive">
-                                        <NavLink to={subRoute.path} className="nav-link">
+                                        <NavLink to={subRoute.path} className="nav-link" onClick={()=>setMobileMenu(true)}>
                                             <i className="menu-icon las la-dot-circle"></i>
                                             <span className="menu-title">{subRoute.name}</span>
                                         </NavLink>
@@ -112,7 +112,7 @@ const SideBarSubMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
                             {route.subRoutes.map((subRoute, i) => ( 
                                 <li className="sidebar-menu-item menuActive">
                                     <li className="sidebar-menu-item menuActive">
-                                        <NavLink to={subRoute.path} className="nav-link">
+                                        <NavLink to={subRoute.path} className="nav-link" onClick={()=>setMobileMenu(true)}>
                                             <i className="menu-icon las la-dot-circle"></i>
                                             <span className="menu-title">{subRoute.name}</span>
                                         </NavLink>
@@ -148,7 +148,7 @@ const SideBarSubMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
                             {route.subRoutes.map((subRoute, i) => (
                                 <li className="sidebar-menu-item menuActive">
                                     <li className="sidebar-menu-item menuActive">
-                                        <NavLink to={subRoute.path} className="nav-link">
+                                        <NavLink to={subRoute.path} className="nav-link" onClick={()=>setMobileMenu(true)}>
                                             <i className="menu-icon las la-dot-circle"></i>
                                             <span className="menu-title">{subRoute.name}</span>
                                         </NavLink>
@@ -184,7 +184,7 @@ const SideBarSubMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
                             {route.subRoutes.map((subRoute, i) => (
                                 <li className="sidebar-menu-item menuActive">
                                     <li className="sidebar-menu-item menuActive">
-                                        <NavLink to={subRoute.path} className="nav-link">
+                                        <NavLink to={subRoute.path} className="nav-link" onClick={()=>setMobileMenu(true)}>
                                             <i className="menu-icon las la-dot-circle"></i>
                                             <span className="menu-title">{subRoute.name}</span>
                                         </NavLink>
@@ -220,7 +220,7 @@ const SideBarSubMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
                             {route.subRoutes.map((subRoute, i) => (
                                 <li className="sidebar-menu-item menuActive">
                                     <li className="sidebar-menu-item menuActive">
-                                        <NavLink to={subRoute.path} className="nav-link">
+                                        <NavLink to={subRoute.path} className="nav-link" onClick={()=>setMobileMenu(true)}>
                                             <i className="menu-icon las la-dot-circle"></i>
                                             <span className="menu-title">{subRoute.name}</span>
                                         </NavLink>
@@ -259,7 +259,7 @@ const SideBarSubMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
 
                                 <li className="sidebar-menu-item menuActive">
                                     <li className="sidebar-menu-item menuActive">
-                                        <NavLink to={subRoute.path} className="nav-link">
+                                        <NavLink to={subRoute.path} className="nav-link" onClick={()=>setMobileMenu(true)}>
                                             <i className="menu-icon las la-dot-circle"></i>
                                             <span className="menu-title">{subRoute.name}</span>
                                         </NavLink>
@@ -295,7 +295,7 @@ const SideBarSubMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
                             {route.subRoutes.map((subRoute, i) => (
                                 <li className="sidebar-menu-item menuActive">
                                     <li className="sidebar-menu-item menuActive">
-                                        <NavLink to={subRoute.path} className="nav-link">
+                                        <NavLink to={subRoute.path} className="nav-link" onClick={()=>setMobileMenu(true)}>
                                             <i className="menu-icon las la-dot-circle"></i>
                                             <span className="menu-title">{subRoute.name}</span>
                                         </NavLink>
@@ -371,7 +371,7 @@ const SideBarSubMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
                             {route.subRoutes.map((subRoute, i) => (
                                 <li className="sidebar-menu-item menuActive">
                                     <li className="sidebar-menu-item menuActive">
-                                        <NavLink to={subRoute.path} className="nav-link">
+                                        <NavLink to={subRoute.path} className="nav-link" onClick={()=>setMobileMenu(true)}>
                                             <i className="menu-icon las la-dot-circle"></i>
                                             <span className="menu-title">{subRoute.name}</span>
                                         </NavLink>
@@ -410,7 +410,7 @@ const SideBarSubMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
                             {route.subRoutes.map((subRoute, i) => (
                                 <li className="sidebar-menu-item menuActive">
                                     <li className="sidebar-menu-item menuActive">
-                                        <NavLink to={subRoute.path} className="nav-link">
+                                        <NavLink to={subRoute.path} className="nav-link" onClick={()=>setMobileMenu(true)}>
                                             <i className="menu-icon las la-dot-circle"></i>
                                             <span className="menu-title">{subRoute.name}</span>
                                         </NavLink>
@@ -432,7 +432,7 @@ const SideBarSubMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
                 <div className="menu" onClick={toggleMenu}>
                     <div className="menu_item">
                         <li className="sidebar-menu-item {{menuActive('admin.dashboard')}}">
-                            <Link className="nav-link ">
+                            <Link className="nav-link " >
                                 <i className={route.icon}></i>
                                 <div className=' d-flex justify-content-between align-items-center'>
                                     <span className="menu-title">{route.name}
@@ -449,7 +449,7 @@ const SideBarSubMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
                             {route.subRoutes.map((subRoute, i) => (
                                 <li className="sidebar-menu-item menuActive">
                                     <li className="sidebar-menu-item menuActive">
-                                        <NavLink to={subRoute.path} className="nav-link">
+                                        <NavLink to={subRoute.path} className="nav-link" onClick={()=>setMobileMenu(true)}>
                                             <i className="menu-icon las la-dot-circle"></i>
                                             <span className="menu-title">{subRoute.name}</span>
                                         </NavLink>

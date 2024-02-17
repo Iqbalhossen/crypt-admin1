@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SingleItem from '../SingleItem';
 
@@ -6,7 +6,7 @@ const ApprovedWithdrawals = () => {
     const [data, setData] = useState([]);
     const [dataSum, setdataSum] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/withdrawal/accept`, {
+        fetch(`https://gffex.xyz/api/admin/withdrawal/accept`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -56,37 +56,41 @@ const ApprovedWithdrawals = () => {
                 <div class="col-lg-12">
                     <div class="card b-radius-10 ">
                         <div class="card-body p-0">
+                            <div class="col-md-12">
+                                <div class="card b-radius--10">
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive--sm table-responsive">
+                                            <table class="table table--light style--two mb-0" >
+                                                <thead>
+                                                    <tr>
+                                                        <th>Gateway | Transaction</th>
+                                                        <th>Initiated</th>
+                                                        <th>Full Name</th>
+                                                        <th>Amount</th>
+                                                        <th>Conversion</th>
+                                                        <th>Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {data.length !== 0 ?
+                                                        data.map((data, index) => {
+                                                            console.log(data)
+                                                            if (data) {
+                                                                return (
+                                                                    <SingleItem data={data} index={index} key={data._id} ></SingleItem>
+                                                                );
+                                                            }
+                                                        }) :
+                                                        <tr>
+                                                            <td className="text-muted text-center" colspan="100%">Data not found</td>
+                                                        </tr>}
 
-                            <div class="table-responsive-sm table-responsive">
-                                <table class="table table-light style-two mb-0">
-                                    <thead>
-                                        <tr>
-                                            <th>Gateway | Transaction</th>
-                                            <th>Initiated</th>
-                                            <th>User</th>
-                                            <th>Amount</th>
-                                            <th>Conversion</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {data.length !== 0 ?
-                                            data.map((data, index) => {
-                                                if (data) {
-                                                    return (
-                                                        <SingleItem data={data} index={index} key={data._id} ></SingleItem>
-                                                    );
-                                                }
-                                            }) :
-                                            <tr>
-                                                <td className="text-muted text-center" colspan="100%">Data not found</td>
-                                            </tr>}
-
-
-                                    </tbody>
-                                </table>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         {/* <div class="card-footer py-4">

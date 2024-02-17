@@ -5,7 +5,7 @@ import SingleItem from '../SingleItem';
 const SupportTicketAll = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/support/tickets/all/view`, {
+        fetch(`https://gffex.xyz/api/admin/support/tickets/all/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -15,49 +15,48 @@ const SupportTicketAll = () => {
     }, [])
     return (
         <>
-           <div className="bodywrapper__inner">
+            <div className="bodywrapper__inner">
 
-<div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-    <h6 className="page-title">Support Tickets</h6>
-    <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
-    </div>
-</div>
-
-<div className="row">
-    <div className="col-lg-12">
-        <div className="card b-radius--10 ">
-            <div className="card-body p-0">
-                <div className="table-responsive--sm table-responsive">
-                    <table className="table table--light">
-                        <thead>
-                            <tr>
-                                <th>Subject</th>
-                                <th>Submitted By</th>
-                                <th>Status</th>
-                                <th>Priority</th>
-                                <th>Last Reply</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {data.length !== 0 ?
-                                            data.map((data, index) => {
-                                                console.log(data)
-                                                if (data) {
-                                                    return (
-                                                        <SingleItem data={data} index={index} key={data._id} ></SingleItem>
-                                                    );
-                                                }
-                                            }) :
-                                            <tr>
-                                                <td className="text-muted text-center" colspan="100%">Data not found</td>
-                                            </tr>}
-
-                        </tbody>
-                    </table>
+                <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
+                    <h6 className="page-title">Support Tickets</h6>
+                    <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
+                    </div>
                 </div>
-            </div>
-            {/* <div className="card-footer py-4">
+
+                <div className="row">
+                    <div className="col-lg-12">
+                        <div className="card b-radius--10 ">
+                            <div className="card-body p-0">
+                                <div className="table-responsive--sm table-responsive">
+                                    <table className="table table--light">
+                                        <thead>
+                                            <tr>
+                                                <th>Subject</th>
+                                                <th>Submitted By</th>
+                                                <th>Status</th>
+                                                <th>Priority</th>
+                                                <th>Last Reply</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {data.length !== 0 ?
+                                                data.map((data, index) => {
+                                                    if (data) {
+                                                        return (
+                                                            <SingleItem data={data} index={index} key={data._id} ></SingleItem>
+                                                        );
+                                                    }
+                                                }) :
+                                                <tr>
+                                                    <td className="text-muted text-center" colspan="100%">Data not found</td>
+                                                </tr>}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            {/* <div className="card-footer py-4">
                 <nav className="d-flex justify-content-end">
                     <ul className="pagination">
 
@@ -81,12 +80,12 @@ const SupportTicketAll = () => {
                 </nav>
 
             </div> */}
-        </div>
-    </div>
-</div>
+                        </div>
+                    </div>
+                </div>
 
 
-</div> 
+            </div>
         </>
     );
 };

@@ -5,14 +5,14 @@ const SingleItem = ({ index, data, handleDelete }) => {
     return (
         <>
             <tr>
-                <td >
+                <td data-label="Name">
                     <div className="user">
                         <span className="name">{data?.name}</span>
                     </div>
                 </td>
-                <td >{data?.email}</td>
-                <td >{data?.phone}</td>
-                <td >
+                <td data-label="Email">{data?.email}</td>
+                <td data-label="Phone">{data?.phone}</td>
+                <td data-label="Editor Or Viewer">
                     {data?.EditororViewer === "editor" ?
                         <span className="badge badge--success text-success">Editor</span>
 
@@ -20,7 +20,7 @@ const SingleItem = ({ index, data, handleDelete }) => {
                         <span className="badge badge--warning text-warning">Viewer</span>
                     }
                 </td>
-                <td >
+                <td data-label="Role">
                 {data?.role === "super_admin" ?
                         <span className="badge text-bg-primary">Super Admin</span>
 
@@ -40,7 +40,7 @@ const SingleItem = ({ index, data, handleDelete }) => {
                         ''
                     }
                 </td>
-                <td >
+                <td data-label="Action">
                     <Link to={`/admin/staff/details/${data._id}`} className="btn btn-sm btn-outline-primary ms-1">
                         <i className="la la-desktop"></i> Details                                    </Link>
                     <Link to={`/admin/staff/edit/${data?._id}`} class="btn btn-sm btn-outline-primary"><i class="la la-pencil-alt"></i> Edit</Link>

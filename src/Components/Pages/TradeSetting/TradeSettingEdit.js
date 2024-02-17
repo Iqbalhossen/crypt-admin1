@@ -21,7 +21,7 @@ const TradeSettingEdit = () => {
                 'content-type': 'application/json',
             }
         };
-        axios.put(`http://localhost:5000/api/admin/Trade/setting/update/${id}`, userData, config)
+        axios.put(`https://gffex.xyz/api/admin/Trade/setting/update/${id}`, userData, config)
             .then(response => {
                 event.target.reset();
                 refSubmitDis.current.removeAttribute("disabled");

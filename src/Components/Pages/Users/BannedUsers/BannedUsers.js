@@ -4,7 +4,7 @@ import SingleItem from '../SingleItem';
 const BannedUsers = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/view/banned`, {
+        fetch(`https://gffex.xyz/api/admin/user/view/banned`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -35,8 +35,9 @@ const BannedUsers = () => {
                                 <table class="table table--light style--two">
                                     <thead>
                                         <tr>
-                                        <th>User</th>
-                                            <th>Email-Phone</th>
+                                            <th>Full Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
                                             <th>Password</th>
                                             <th>Country</th>
                                             <th>Joined At</th>
@@ -45,7 +46,7 @@ const BannedUsers = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    {data.length !== 0 ?
+                                        {data.length !== 0 ?
                                             data.map((data, index) => {
                                                 if (data) {
                                                     return (
@@ -57,7 +58,7 @@ const BannedUsers = () => {
                                                 <td className="text-muted text-center" colspan="100%">Data not found</td>
                                             </tr>}
 
-                                 
+
                                     </tbody>
                                 </table>
                             </div>

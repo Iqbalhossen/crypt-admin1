@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import dateFormat from "dateformat";
 const WithdrawalsDetails = () => {
@@ -9,7 +9,7 @@ const WithdrawalsDetails = () => {
     const [data, setData] = useState([]);
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/withdrawal/single/view/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/withdrawal/single/view/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -18,20 +18,21 @@ const WithdrawalsDetails = () => {
             })
     }, [updateData])
 
-    const userId = `${data ? data?.user_id : null}`
     const [userData, setuserData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/view/single/${userId}`, {
-            method: 'GET',
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                setuserData(data.data)
+        if(data?.user_id){
+            fetch(`https://gffex.xyz/api/admin/user/view/single/${data?.user_id}`, {
+                method: 'GET',
             })
+                .then((res) => res.json())
+                .then((data) => {
+                    setuserData(data.data)
+                })
+        }
     }, [data])
 
     const handleAccept = id => {
-        fetch(`http://localhost:5000/api/admin/withdrawal/accept/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/withdrawal/accept/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -54,7 +55,7 @@ const WithdrawalsDetails = () => {
             .catch(error => console.log(error));
     }
     const handleReject = id => {
-        fetch(`http://localhost:5000/api/admin/withdrawal/reject/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/withdrawal/reject/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -81,7 +82,7 @@ const WithdrawalsDetails = () => {
     return (
         <>
             <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-                <h6 className="page-title">{userData?.name} Withdraw Requested {data?.AmountWithVat} USD</h6>
+                <h6 className="page-title">{userData?.fname} {userData?.lname} Withdraw Requested {data?.AmountWithVat} USD</h6>
                 <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
                 </div>
             </div>
@@ -101,7 +102,7 @@ const WithdrawalsDetails = () => {
                                 </li>
                                 <li className="list-group-item d-flex justify-content-between align-items-center">
                                     Username                            <span className="fw-bold">
-                                        <a href="https://gffexvip.biz/admin/users/detail/12">{userData?.name}</a>
+                                        <Link to={`/admin/users/details/${userData?._id}`}>{userData?.fname} {userData?.lname}</Link>
                                     </span>
                                 </li>
                                 <li className="list-group-item d-flex justify-content-between align-items-center">

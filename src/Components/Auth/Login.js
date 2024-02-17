@@ -15,7 +15,7 @@ const Login = () => {
     const handleRegister = event => {
         refSubmitDis.current.setAttribute("disabled", true);
         event.preventDefault();
-        fetch('http://localhost:5000/api/admin/login', {
+        fetch('https://gffex.xyz/api/admin/login', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

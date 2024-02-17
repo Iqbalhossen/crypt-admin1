@@ -5,7 +5,7 @@ import SingleItem from '../SingleItem';
 const SupportTicketPending = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/support/tickets/view`, {
+        fetch(`https://gffex.xyz/api/admin/support/tickets/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -43,7 +43,6 @@ const SupportTicketPending = () => {
                                            
                                         {data.length !== 0 ?
                                             data.map((data, index) => {
-                                                console.log(data)
                                                 if (data) {
                                                     return (
                                                         <SingleItem data={data} index={index} key={data._id} ></SingleItem>

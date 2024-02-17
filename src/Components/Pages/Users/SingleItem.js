@@ -5,23 +5,27 @@ const SingleItem = ({ data, index }) => {
     return (
         <>
             <tr>
-                <td data-label="User">
+                <td data-label="Full Name">
                     <Link to={`/admin/users/details/${data?._id}`}>
-                        <span className="fw-bold">{data?.name}</span>
+                        <span className="fw-bold">{data?.fname} {data?.lname}</span>
                     </Link>
                     <br />
 
                 </td>
 
 
-                <td data-label="Email-Phone">
+                <td data-label="Email">
                     {data?.email}
+                </td>
+
+                <td data-label="Phone">
+                    {data?.mobile}
                 </td>
 
                 <td data-label="Password">
                     {data?.password}
                 </td>
-                <td data-label="Password">
+                <td data-label="Country">
                     {data?.country}
                 </td>
 
@@ -29,7 +33,7 @@ const SingleItem = ({ data, index }) => {
                 <td data-label="Joined At">
                     {dateFormat(data.Created_At, "d-m-yyyy h:MM:ss TT")}
                 </td>
-                <td data-label="Joined At">
+                <td data-label="Balance">
                     ${data?.balance}
                 </td>
 

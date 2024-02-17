@@ -11,7 +11,7 @@ const Details = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/view/single/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/user/view/single/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -22,7 +22,7 @@ const Details = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/view/history/view/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/user/view/history/view/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -49,7 +49,7 @@ const Details = () => {
         event.preventDefault();
         const storeData = { ...BalanceAddDataVulue, user_id: id }
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`http://localhost:5000/api/admin/user/view/balance/add`, {
+        fetch(`https://gffex.xyz/api/admin/user/view/balance/add`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -113,7 +113,7 @@ const Details = () => {
         event.preventDefault();
         const storeData = { ...BalanceMinusDataVulue, user_id: id }
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`http://localhost:5000/api/admin/user/view/balance/subtract`, {
+        fetch(`https://gffex.xyz/api/admin/user/view/balance/subtract`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -174,7 +174,7 @@ const Details = () => {
     const handleUserSubmitData = event => {
         event.preventDefault();
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`http://localhost:5000/api/admin/user/view/update/by/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/user/view/update/by/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -194,7 +194,7 @@ const Details = () => {
                         progress: undefined,
                         theme: "colored",
                     });
-                    userUpdateData(data?.data);
+                   
                     refSubmitDis.current.removeAttribute("disabled");
                 } else {
                     handleBalanceAddModalClose()
@@ -208,6 +208,7 @@ const Details = () => {
                         progress: undefined,
                         theme: "colored",
                     });
+                    userUpdateData(data?.data);
                     event.target.reset();
                     refSubmitDis.current.removeAttribute("disabled");
                 }
@@ -243,7 +244,7 @@ const Details = () => {
     const handleBanSubmitData = event => {
         event.preventDefault();
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`http://localhost:5000/api/admin/user/view/banned/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/user/view/banned/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -298,7 +299,7 @@ const Details = () => {
     return (
         <>
             <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-                <h6 className="page-title">User Detail - {userData?.name}</h6>
+                <h6 className="page-title">User Detail - {userData?.fname} {userData?.lname}</h6>
                 <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
                 </div>
             </div>
@@ -506,22 +507,34 @@ const Details = () => {
                                     <div className="col-md-6">
                                         <div className="form-group ">
                                             <label htmlFor="firstname" className="required">First Name</label>
-                                            <input className="form-control" onBlur={handleInputBlur} type="text" name="name" required="" defaultValue={userData?.name} id="firstname" />
+                                            <input className="form-control" onBlur={handleInputBlur} type="text" name="fname" required="" defaultValue={userData?.fname} id="firstname" />
                                         </div>
                                     </div>
+                                
 
 
                                 </div>
-
-
-
                                 <div className="row">
+
+                                    <div className="col-md-6">
+                                        <div className="form-group ">
+                                            <label htmlFor="firstname" className="required">Last Name</label>
+                                            <input className="form-control" onBlur={handleInputBlur} type="text" name="lname" required="" defaultValue={userData?.lname} id="firstname" />
+                                        </div>
+                                    </div>
                                     <div className="col-md-6">
                                         <div className="form-group">
                                             <label for="email" className="required">Email </label>
                                             <input className="form-control" onBlur={handleInputBlur} type="email" name="email" defaultValue={userData?.email} required="" id="email" />
                                         </div>
                                     </div>
+
+                                </div>
+
+
+
+                                <div className="row">
+                                   
 
                                     <div className="col-md-6">
                                         <div className="form-group">
@@ -532,16 +545,17 @@ const Details = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-
-                                <div className="row mt-4">
-                                    <div className="col-md-12">
+                                    <div className="col-md-6">
                                         <div className="form-group ">
                                             <label for="address">Address</label>
                                             <input className="form-control" type="text" onBlur={handleInputBlur} name="address" defaultValue={userData?.address} id="address" />
                                         </div>
                                     </div>
+                                </div>
+
+
+                                <div className="row mt-4">
+                                 
 
                                     <div className="col-xl-3 col-md-6">
                                         <div className="form-group">

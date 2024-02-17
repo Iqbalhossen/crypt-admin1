@@ -12,7 +12,7 @@ const StartTradeBtn = () => {
     const handleSubmitData = event => {
         event.preventDefault();
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`http://localhost:5000/api/admin/home/start/trade/button/store`, {
+        fetch(`https://gffex.xyz/api/admin/home/start/trade/button/store`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -62,7 +62,7 @@ const StartTradeBtn = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/frontend/home/start/trade/button/view`, {
+        fetch(`https://gffex.xyz/api/frontend/home/start/trade/button/view`, {
             method: 'GET',
         })
             .then((res) => res.json())

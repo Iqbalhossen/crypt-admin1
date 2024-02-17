@@ -6,7 +6,7 @@ const TradeLogAll = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/trade/log/all`, {
+        fetch(`https://gffex.xyz/api/admin/trade/log/all`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -47,7 +47,7 @@ const TradeLogAll = () => {
                                     <thead>
                                         <tr>
                                             <th>S.N.</th>
-                                            <th>User</th>
+                                            <th>Full Name</th>
                                             <th>Crypto</th>
                                             <th>Amount</th>
                                             <th>In Time</th>
@@ -60,7 +60,6 @@ const TradeLogAll = () => {
                                     <tbody>
                                         {data.length !== 0 ?
                                             data.map((data, index) => {
-                                                console.log(data)
                                                 if (data) {
                                                     return (
                                                         <SingleItem data={data} index={index} key={data._id} ></SingleItem>

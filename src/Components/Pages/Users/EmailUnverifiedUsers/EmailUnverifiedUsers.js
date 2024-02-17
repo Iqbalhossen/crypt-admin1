@@ -6,7 +6,7 @@ const EmailUnverifiedUsers = () => {
     
         const [data, setData] = useState([]);
         useEffect(() => {
-            fetch(`http://localhost:5000/api/admin/user/view/unverify/email`, {
+            fetch(`https://gffex.xyz/api/admin/user/view/unverify/email`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
@@ -37,8 +37,9 @@ const EmailUnverifiedUsers = () => {
                                     <table class="table table--light style--two">
                                         <thead>
                                             <tr>
-                                            <th>User</th>
-                                            <th>Email-Phone</th>
+                                            <th>Full Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
                                             <th>Password</th>
                                             <th>Country</th>
                                             <th>Joined At</th>

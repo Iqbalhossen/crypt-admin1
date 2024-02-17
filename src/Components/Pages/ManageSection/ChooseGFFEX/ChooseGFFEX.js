@@ -37,7 +37,7 @@ const ChooseGFFEX = () => {
                     'content-type': 'multipart/form-data',
                 }
             };
-            axios.post(`http://localhost:5000/api/admin/home/choose/gffex/store`, userData, config)
+            axios.post(`https://gffex.xyz/api/admin/home/choose/gffex/store`, userData, config)
                 .then(response => {
                     event.target.reset();
                     toast.success(`${response?.data.message}`, {
@@ -70,7 +70,7 @@ const ChooseGFFEX = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/frontend/home/choose/gffex/view`, {
+        fetch(`https://gffex.xyz/api/frontend/home/choose/gffex/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -99,7 +99,7 @@ const ChooseGFFEX = () => {
                                                     <div className="avatar-preview">
                                                         <div className="profilePicPreview" style={{ height: '120px', }}>
                                                             <video autoPlay style={{ height: 'auto', width: '100%' }}>
-                                                                <source src={`http://localhost:5000/${data?.videos}`} type="video/mp4" />
+                                                                <source src={`https://gffex.xyz/${data?.videos}`} type="video/mp4" />
                                                             </video>
                                                         </div>
                                                     </div>

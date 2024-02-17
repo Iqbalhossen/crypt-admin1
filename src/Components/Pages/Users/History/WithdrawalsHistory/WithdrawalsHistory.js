@@ -8,7 +8,7 @@ const WithdrawalsHistory = () => {
     const [data, setData] = useState([]);
     const [dataSum, setDataSum] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/withdrawal/history/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/withdrawal/history/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())

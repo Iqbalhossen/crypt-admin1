@@ -11,7 +11,7 @@ const ReSetPassword = () => {
     const handleSubmit = event => {
         refSubmitDis.current.setAttribute("disabled", true);
         event.preventDefault();
-        fetch(`http://localhost:5000/api/admin/passowrd/reset/${id}/${token}`, {
+        fetch(`https://gffex.xyz/api/admin/passowrd/reset/${id}/${token}`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

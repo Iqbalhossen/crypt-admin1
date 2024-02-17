@@ -6,7 +6,7 @@ const PendingDeposits = () => {
     const [data, setData] = useState([]);
     const [dataSum, setDataSum] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/deposit/pending`, {
+        fetch(`https://gffex.xyz/api/admin/deposit/pending`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -62,7 +62,7 @@ const PendingDeposits = () => {
                                         <tr>
                                             <th>Gateway | Transaction</th>
                                             <th>Initiated</th>
-                                            <th>User</th>
+                                            <th>Full Name</th>
                                             <th>Amount</th>
                                             <th>Conversion</th>
                                             <th>Status</th>

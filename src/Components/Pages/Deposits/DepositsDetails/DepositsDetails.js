@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import dateFormat from "dateformat";
 const DepositsDetails = () => {
@@ -8,7 +8,7 @@ const DepositsDetails = () => {
     const [data, setData] = useState([]);
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/deposit/single/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/deposit/single/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -17,20 +17,22 @@ const DepositsDetails = () => {
             })
     }, [updateData])
 
-    const userId = `${data ? data?.user_id : null}`
     const [userData, setuserData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/view/single/${userId}`, {
-            method: 'GET',
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                setuserData(data.data)
+        if (data?.user_id) {
+            fetch(`https://gffex.xyz/api/admin/user/view/single/${data?.user_id}`, {
+                method: 'GET',
             })
+                .then((res) => res.json())
+                .then((data) => {
+                    setuserData(data.data)
+                })
+        }
+
     }, [data])
 
     const handleAccept = id => {
-        fetch(`http://localhost:5000/api/admin/deposit/accept/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/deposit/accept/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -53,7 +55,7 @@ const DepositsDetails = () => {
             .catch(error => console.log(error));
     }
     const handleReject = id => {
-        fetch(`http://localhost:5000/api/admin/deposit/reject/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/deposit/reject/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -80,7 +82,7 @@ const DepositsDetails = () => {
     return (
         <>
             <div class="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-                <h6 class="page-title">{userData?.name} requested {data?.AmountWithVat} USD</h6>
+                <h6 class="page-title">{userData?.fname} {userData?.lname} requested {data?.AmountWithVat} USD</h6>
                 <div class="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
                 </div>
             </div>
@@ -99,7 +101,7 @@ const DepositsDetails = () => {
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     Username                            <span class="fw-bold">
-                                        <a href="https://gffexvip.biz/admin/users/detail/46">{userData?.name}</a>
+                                        <Link href={`/admin/users/details/${userData?._id}`}>{userData?.fname} {userData?.lname}</Link>
                                     </span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -159,7 +161,7 @@ const DepositsDetails = () => {
                             <div class="row mt-4">
                                 <div class="col-md-12">
                                     <h6>Transaction screenshot</h6>
-                                    <a href={`http://localhost:5000/${data?.screenshot}`} target='_blank' class="me-3" alt=''><i class="fa fa-file"></i>  Attachment </a>
+                                    <a href={`https://gffex.xyz/${data?.screenshot}`} target='_blank' class="me-3" alt=''><i class="fa fa-file"></i>  Attachment </a>
                                 </div>
                             </div>
                             <div class="row mt-4">
@@ -170,11 +172,11 @@ const DepositsDetails = () => {
                                     {data.Status === 0 ?
 
                                         <>
-                                            <button onClick={()=>handleAccept(data?._id)} className="btn btn-sm btn-outline-success ms-1 confirmationBtn"
+                                            <button onClick={() => handleAccept(data?._id)} className="btn btn-sm btn-outline-success ms-1 confirmationBtn"
                                             >
                                                 Approve
                                             </button>
-                                            <button onClick={()=>handleReject(data?._id)} className="btn btn-sm btn-outline-danger ms-1 confirmationBtn"
+                                            <button onClick={() => handleReject(data?._id)} className="btn btn-sm btn-outline-danger ms-1 confirmationBtn"
                                             >
                                                 Reject
                                             </button>

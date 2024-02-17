@@ -38,7 +38,7 @@ const EventSection = () => {
                     'content-type': 'multipart/form-data',
                 }
             };
-            axios.post(`http://localhost:5000/api/admin/home/bouns/store`, userData, config)
+            axios.post(`https://gffex.xyz/api/admin/home/bouns/store`, userData, config)
                 .then(response => {
                     event.target.reset();
                     toast.success(`${response?.data.message}`, {
@@ -85,7 +85,7 @@ const EventSection = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/frontend/home/bouns/view`, {
+        fetch(`https://gffex.xyz/api/frontend/home/bouns/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -114,7 +114,7 @@ const EventSection = () => {
                                                 <div className="thumb">
                                                     <div className="avatar-preview">
                                                         <div className="profilePicPreview" style={{ height: '120px', }}>
-                                                            <img src={`http://localhost:5000/${data?.image_url}`} alt="" />
+                                                            <img src={`https://gffex.xyz/${data?.image_url}`} alt="" />
                                                         </div>
                                                     </div>
                                                     <div className="avatar-edit">

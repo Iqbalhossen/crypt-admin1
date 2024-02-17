@@ -47,7 +47,7 @@ const FooterSetting = () => {
                     'content-type': 'multipart/form-data',
                 }
             };          
-            axios.post(`http://localhost:5000/api/admin/site/setting/footer/store`, userData, config)
+            axios.post(`https://gffex.xyz/api/admin/site/setting/footer/store`, userData, config)
             .then((data) => {
                 event.target.reset();
                 toast.success(`${data?.data.message}`, {
@@ -71,7 +71,7 @@ const FooterSetting = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/frontend/home/footer/setting/view`, {
+        fetch(`https://gffex.xyz/api/frontend/home/footer/setting/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -98,7 +98,7 @@ const FooterSetting = () => {
                                                 <div className="thumb">
                                                     <div className="avatar-preview">
                                                         <div className="profilePicPreview" style={{ height: '120px', }}>
-                                                            <img src={`http://localhost:5000/${data?.logo}`} width='100%' alt='' />
+                                                            <img src={`https://gffex.xyz/${data?.logo}`} width='100%' alt='' />
                                                         </div>
                                                     </div>
                                                     <div className="avatar-edit">

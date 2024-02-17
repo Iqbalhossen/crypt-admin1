@@ -22,7 +22,7 @@ const WithdrawalMethodsAdd = () => {
                 'content-type': 'application/json',
             }
         };
-        axios.post(`http://localhost:5000/api/admin/withdrawal/methods/store`, storeData, config)
+        axios.post(`https://gffex.xyz/api/admin/withdrawal/methods/store`, storeData, config)
             .then(response => {
                 toast.success(`${response?.data.message}`, {
                     position: "top-right",

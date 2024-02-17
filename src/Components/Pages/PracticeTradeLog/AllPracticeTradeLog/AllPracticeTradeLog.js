@@ -6,7 +6,7 @@ const AllPracticeTradeLog = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/practice/trade/log/all`, {
+        fetch(`https://gffex.xyz/api/admin/practice/trade/log/all`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -39,14 +39,14 @@ const AllPracticeTradeLog = () => {
 
             <div className="row">
                 <div className="col-lg-12">
-                    <div className="card b-radius-10 shadow-lg ">
+                    <div className="card b-radius--10 ">
                         <div className="card-body p-0">
-                            <div className="table-responsive-md  table-responsive ">
-                                <table className="table table-light style-two mb-0 ">
+                            <div className="table-responsive--md  table-responsive">
+                                <table className="table table--light style-two mb-0">
                                     <thead>
                                         <tr>
                                             <th>S.N.</th>
-                                            <th>User</th>
+                                            <th>Full Name</th>
                                             <th>Crypto</th>
                                             <th>Amount</th>
                                             <th>In Time</th>

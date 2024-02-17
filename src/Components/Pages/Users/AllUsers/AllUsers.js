@@ -4,7 +4,7 @@ import SingleItem from '../SingleItem';
 const AllUsers = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/view/all`, {
+        fetch(`https://gffex.xyz/api/admin/user/view/all`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -35,8 +35,9 @@ const AllUsers = () => {
                                 <table class="table table--light style--two">
                                     <thead>
                                         <tr>
-                                        <th>User</th>
-                                            <th>Email-Phone</th>
+                                            <th>Full Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
                                             <th>Password</th>
                                             <th>Country</th>
                                             <th>Joined At</th>
@@ -45,7 +46,7 @@ const AllUsers = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    {data.length !== 0 ?
+                                        {data.length !== 0 ?
                                             data.map((data, index) => {
                                                 if (data) {
                                                     return (
@@ -57,7 +58,7 @@ const AllUsers = () => {
                                                 <td className="text-muted text-center" colspan="100%">Data not found</td>
                                             </tr>}
 
-                                 
+
                                     </tbody>
                                 </table>
                             </div>

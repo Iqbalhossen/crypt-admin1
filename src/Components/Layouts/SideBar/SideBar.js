@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import SideBarSubMenu from './SideBarSubMenu';
 import { useContext } from 'react';
@@ -345,11 +345,27 @@ const routes = [
             }
         ],
     },
+    {
+        path: "",
+        name: "Live Chats",
+        icon: "menu-icon la la-puzzle-piece",
+        subRoutes: [
+            {
+                path: "/admin/frontend/frontend-sections/top/bannar/section",
+                name: "Pending Chats",
+            },
+            {
+                path: "/admin/chats/live",
+                name: "Live Chats",
+            },
+
+        ],
+    },
 
 
 ];
 
-const SideBar = () => {
+const SideBar = ({ menuSHow, setMenuShow }) => {
     const { authUser, authId } = useContext(AuthContext);
 
     const [isOpen, setIsOpen] = useState(false);
@@ -388,14 +404,28 @@ const SideBar = () => {
         },
     };
 
+    const menuRef = useRef();
 
+    const [mobileMenu, setMobileMenu] = useState();
+
+    useEffect(() => {
+        if (menuSHow === true) {
+            menuRef.current.style.left = "0px";
+        }
+        if (mobileMenu === true) {
+            menuRef.current.style.left = "-285px";
+            setMenuShow(false);
+            setMobileMenu(false)
+        }
+
+    }, [menuSHow, mobileMenu]);
 
     return (
         <>
             <div className=" default-version">
                 {/* <div className="page-wrapper default-version"> */}
-                <div className="sidebar bg--dark">
-                    <button className="res-sidebar-close-btn"><i className="las la-times"></i></button>
+                <div className="sidebar bg--dark" ref={menuRef}>
+                    <button className="res-sidebar-close-btn" onClick={() => setMobileMenu(true)}><i className="las la-times"></i></button>
                     <div className="sidebar__inner">
                         <div className="sidebar__logo">
                             <Link href="/admin/dashboard" className="sidebar__main-logo"><img src="https://gffexvip.biz/assets/images/logoIcon/logo.png" alt="" /></Link>
@@ -413,6 +443,7 @@ const SideBar = () => {
                                                 showAnimation={showAnimation}
                                                 isOpen={isOpen}
                                                 key={index}
+                                                setMobileMenu={setMobileMenu}
                                             />
                                         );
                                     } else if (route.title) {
@@ -422,7 +453,7 @@ const SideBar = () => {
 
                                     } else {
                                         return (
-                                            <SideBarMenu route={route} index={index} key={index}></SideBarMenu>
+                                            <SideBarMenu route={route} index={index} key={index} setMobileMenu={setMobileMenu}></SideBarMenu>
                                         )
                                     }
                                 })}

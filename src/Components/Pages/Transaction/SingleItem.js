@@ -4,11 +4,24 @@ import dateFormat from "dateformat";
 
 const SingleItem = ({ data, index }) => {
 
-    return (
+    const [userData, setuserData] = useState([]);
+    useEffect(() => {
+        if(data?.user_id){
+            fetch(`https://gffex.xyz/api/admin/user/view/single/${data?.user_id}`, {
+                method: 'GET',
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    setuserData(data.data)
+                })
+        }
+       
+    }, [])
+        return (
         <>
             <tr>
                 <td data-label="User">
-                    <Link to={`/admin/users/details/${data.user_id}`}> <span className="fw-bold">{data?.user_name}</span></Link>
+                    <Link to={`/admin/users/details/${data?.user_id}`}> <span className="fw-bold">{userData?.fname} {userData?.lname}</span></Link>
                     <br />
                 </td>
 
@@ -17,7 +30,7 @@ const SingleItem = ({ data, index }) => {
                 </td>
 
                 <td data-label="Transacted">
-                    {dateFormat(data.Created_At, "d-m-yyyy h:MM:ss TT")}
+                    {dateFormat(data?.createdAt, "d-m-yyyy h:MM:ss TT")}
                     {/* <br />2 weeks ago */}
                 </td>
 

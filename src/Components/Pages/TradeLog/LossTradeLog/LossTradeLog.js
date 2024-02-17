@@ -5,7 +5,7 @@ import SingleItem from '../SingleItem';
 const LossTradeLog = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/trade/log/loss`, {
+        fetch(`https://gffex.xyz/api/admin/trade/log/loss`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -44,7 +44,7 @@ const LossTradeLog = () => {
                                     <thead>
                                         <tr>
                                             <th>S.N.</th>
-                                            <th>User</th>
+                                            <th>Full Name</th>
                                             <th>Crypto</th>
                                             <th>Amount</th>
                                             <th>In Time</th>

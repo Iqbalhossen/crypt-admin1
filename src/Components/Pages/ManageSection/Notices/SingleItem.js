@@ -6,15 +6,15 @@ const SingleItem = ({ index, data, handleDelete }) => {
     return (
         <>
             <tr>
-            <td>{index + 1}</td>
-                <td>
+            <td data-label="S.N.">{index + 1}</td>
+                <td data-label="Name">
                     {data.name}
                 </td>
                 
-                <td>
+                <td data-label="Created">
                 {dateFormat(data.Created_At, "d-m-yyyy h:MM:ss TT")}
                 </td>
-                <td>
+                <td data-label="Action">
                     <Link to={`/admin/frontend/frontend-sections/notices/edit/${data._id}`} className="btn btn-sm btn-outline-primary editBtn"
                     >
                         <i className="la la-pencil"></i>Edit

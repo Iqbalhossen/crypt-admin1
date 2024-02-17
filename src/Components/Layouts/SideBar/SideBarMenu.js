@@ -3,14 +3,14 @@ import { AuthContext } from '../../../Contexts/AuthContext/AuthProvider';
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const SideBarMenu = ({ route }) => {
+const SideBarMenu = ({ route, setMobileMenu }) => {
     const { authUser, authId } = useContext(AuthContext);
     const [data, setData] = useState([]);
     const [AdminData, setAdminData] = useState([]);
    
     useEffect(() => {
         if (authId?.data?._id) {
-            fetch(`http://localhost:5000/api/admin/role/view/${authId?.data?._id}`, {
+            fetch(`https://gffex.xyz/api/admin/role/view/${authId?.data?._id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
@@ -38,7 +38,7 @@ const SideBarMenu = ({ route }) => {
     if (route.name === data[0]?.dashboard && AdminData?.dashboard === true) {
         return (
             <li className="sidebar-menu-item {{menuActive('admin.dashboard')}}">
-                <NavLink to={route.path} className="nav-link ">
+                <NavLink to={route.path} className="nav-link " onClick={()=>setMobileMenu(true)}>
                     <i className={route.icon}></i>
                     <span className="menu-title">{route.name}</span>
                 </NavLink>
@@ -49,7 +49,7 @@ const SideBarMenu = ({ route }) => {
     if (route.name === data[1]?.crypto_currency && AdminData?.crypto_currency === true) {
         return (
             <li className="sidebar-menu-item {{menuActive('admin.dashboard')}}">
-                <NavLink to={route.path} className="nav-link ">
+                <NavLink to={route.path} className="nav-link " onClick={()=>setMobileMenu(true)}>
                     <i className={route.icon}></i>
                     <span className="menu-title">{route.name}</span>
                 </NavLink>
@@ -60,7 +60,7 @@ const SideBarMenu = ({ route }) => {
     if (route.name === data[2]?.trade_setting && AdminData?.trade_setting === true) {
         return (
             <li className="sidebar-menu-item {{menuActive('admin.dashboard')}}">
-                <NavLink to={route.path} className="nav-link ">
+                <NavLink to={route.path} className="nav-link " onClick={()=>setMobileMenu(true)}>
                     <i className={route.icon}></i>
                     <span className="menu-title">{route.name}</span>
                 </NavLink>
@@ -71,7 +71,7 @@ const SideBarMenu = ({ route }) => {
     if (route.name === data[3]?.manage_staff && AdminData?.manage_staff === true) {
         return (
             <li className="sidebar-menu-item {{menuActive('admin.dashboard')}}">
-                <NavLink to={route.path} className="nav-link ">
+                <NavLink to={route.path} className="nav-link " onClick={()=>setMobileMenu(true)}>
                     <i className={route.icon}></i>
                     <span className="menu-title">{route.name}</span>
                 </NavLink>
@@ -82,7 +82,7 @@ const SideBarMenu = ({ route }) => {
     if (route.name === data[4]?.subscribers && AdminData?.subscribers === true) {
         return (
             <li className="sidebar-menu-item {{menuActive('admin.dashboard')}}">
-                <NavLink to={route.path} className="nav-link ">
+                <NavLink to={route.path} className="nav-link " onClick={()=>setMobileMenu(true)}>
                     <i className={route.icon}></i>
                     <span className="menu-title">{route.name}</span>
                 </NavLink>
@@ -93,7 +93,7 @@ const SideBarMenu = ({ route }) => {
     if (route.name === data[5]?.manage_template && AdminData?.manage_template === true) {
         return (
             <li className="sidebar-menu-item {{menuActive('admin.dashboard')}}">
-                <NavLink to={route.path} className="nav-link ">
+                <NavLink to={route.path} className="nav-link " onClick={()=>setMobileMenu(true)}>
                     <i className={route.icon}></i>
                     <span className="menu-title">{route.name}</span>
                 </NavLink>
@@ -104,7 +104,7 @@ const SideBarMenu = ({ route }) => {
     if (route.name === data[6]?.manage_page && AdminData?.manage_page === true) {
         return (
             <li className="sidebar-menu-item {{menuActive('admin.dashboard')}}">
-                <NavLink to={route.path} className="nav-link ">
+                <NavLink to={route.path} className="nav-link " onClick={()=>setMobileMenu(true)}>
                     <i className={route.icon}></i>
                     <span className="menu-title">{route.name}</span>
                 </NavLink>

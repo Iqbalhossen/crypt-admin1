@@ -8,7 +8,7 @@ const UserLoginHistory = () => {
 const {id} = useParams();
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/admin/user/view/login/history/${id}`, {
+        fetch(`https://gffex.xyz/api/admin/user/view/login/history/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
