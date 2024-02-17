@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
-const ENDPOINT = "https://gffex.xyz";
+const ENDPOINT = "http://localhost:5000";
 let socket;
 const SingleUser = ({ data, singleChatView }) => {
     const [UserData, setUserData] = useState([])
@@ -8,7 +8,7 @@ const SingleUser = ({ data, singleChatView }) => {
 
     useEffect(() => {
         if (data) {
-            fetch(`https://gffex.xyz/api/admin/user/view/single/${data?.userId}`, {
+            fetch(`http://localhost:5000/api/admin/user/view/single/${data?.userId}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())

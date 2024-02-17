@@ -12,7 +12,7 @@ const NoticesEdit = () => {
     const refSubmitDis = useRef();
 
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/home/notice/edit/${id}`, {
+        fetch(`http://localhost:5000/api/admin/home/notice/edit/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -24,7 +24,7 @@ const NoticesEdit = () => {
     const handleSubmitData = event => {
         event.preventDefault();
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`https://gffex.xyz/api/admin/home/notice/update/${id}`, {
+        fetch(`http://localhost:5000/api/admin/home/notice/update/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

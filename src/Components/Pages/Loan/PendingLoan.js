@@ -6,7 +6,7 @@ const PendingLoan = () => {
     const [data, setData] = useState([]);
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/loan/pending/view`, {
+        fetch(`http://localhost:5000/api/admin/loan/pending/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -17,7 +17,7 @@ const PendingLoan = () => {
 
     
     const handleReject = id => {
-        fetch(`https://gffex.xyz/api/admin/loan/reject/${id}`, {
+        fetch(`http://localhost:5000/api/admin/loan/reject/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

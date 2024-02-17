@@ -22,7 +22,7 @@ const CryptoCurrency = () => {
 
 
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/crypto/currency/view`, {
+        fetch(`http://localhost:5000/api/admin/crypto/currency/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -33,7 +33,7 @@ const CryptoCurrency = () => {
 
 
     const handleEnableDisabled = id => {
-        fetch(`https://gffex.xyz/api/admin/crypto/currency/enable/disable/${id}`, {
+        fetch(`http://localhost:5000/api/admin/crypto/currency/enable/disable/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -72,7 +72,7 @@ const CryptoCurrency = () => {
     }
 
     const handleDelete = id => {
-        fetch(`https://gffex.xyz/api/admin/crypto/currency/delete/${id}`, {
+        fetch(`http://localhost:5000/api/admin/crypto/currency/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
@@ -122,7 +122,7 @@ const CryptoCurrency = () => {
                     'content-type': 'multipart/form-data',
                 }
             };
-            axios.post(`https://gffex.xyz/api/admin/crypto/currency/store`, userData, config)
+            axios.post(`http://localhost:5000/api/admin/crypto/currency/store`, userData, config)
                 .then(response => {
                     event.target.reset();
                     setShow(false)

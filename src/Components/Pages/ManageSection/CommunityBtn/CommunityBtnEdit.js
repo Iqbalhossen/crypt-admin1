@@ -11,7 +11,7 @@ const CommunityBtnEdit = () => {
     const refSubmitDis = useRef();
 
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/home/community/button/edit/${id}`, {
+        fetch(`http://localhost:5000/api/admin/home/community/button/edit/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -49,7 +49,7 @@ const CommunityBtnEdit = () => {
                     'content-type': 'multipart/form-data',
                 }
             };
-            axios.put(`https://gffex.xyz/api/admin/home/community/button/update/${id}`, userData, config)
+            axios.put(`http://localhost:5000/api/admin/home/community/button/update/${id}`, userData, config)
             .then(response => {
                 event.target.reset();
                 toast.success(`${response?.data.message}`, {
@@ -103,7 +103,7 @@ const CommunityBtnEdit = () => {
                                                 <div className="thumb">
                                                     <div className="avatar-preview">
                                                         <div className="profilePicPreview" style={{ height: '120px', width: '100%' }}>
-                                                            <img src={`https://gffex.xyz/${data?.btn_image}`} style={{ width: '100%', height: '120px' }} alt="" />
+                                                            <img src={`http://localhost:5000/${data?.btn_image}`} style={{ width: '100%', height: '120px' }} alt="" />
                                                         </div>
                                                     </div>
                                                     <div className="avatar-edit">

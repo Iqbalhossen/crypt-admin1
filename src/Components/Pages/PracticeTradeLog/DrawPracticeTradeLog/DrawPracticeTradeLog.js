@@ -6,7 +6,7 @@ const DrawPracticeTradeLog = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/practice/trade/log/draw`, {
+        fetch(`http://localhost:5000/api/admin/practice/trade/log/draw`, {
             method: 'GET',
         })
             .then((res) => res.json())

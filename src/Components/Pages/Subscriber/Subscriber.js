@@ -7,7 +7,7 @@ const Subscriber = () => {
     const [data, setData] = useState([]);
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/subscriber/manager/view`, {
+        fetch(`http://localhost:5000/api/admin/subscriber/manager/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -17,7 +17,7 @@ const Subscriber = () => {
     }, [updateData])
 
     const handleDelete = id => {
-        fetch(`https://gffex.xyz/api/admin/subscriber/manager/delete/${id}`, {
+        fetch(`http://localhost:5000/api/admin/subscriber/manager/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',

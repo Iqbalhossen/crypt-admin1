@@ -8,7 +8,7 @@ const ManualGateways = () => {
     const [data, setData] = useState([]);
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/gateway/manual/view`, {
+        fetch(`http://localhost:5000/api/admin/gateway/manual/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -18,7 +18,7 @@ const ManualGateways = () => {
     }, [updateData])
 
     const handleDelete = id => {
-        fetch(`https://gffex.xyz/api/admin/gateway/manual/delete/${id}`, {
+        fetch(`http://localhost:5000/api/admin/gateway/manual/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
@@ -41,7 +41,7 @@ const ManualGateways = () => {
             .catch(error => console.log(error));
     }
     const handleEnableDisabled = id => {
-        fetch(`https://gffex.xyz/api/admin/gateway/manual/enable/disable/${id}`, {
+        fetch(`http://localhost:5000/api/admin/gateway/manual/enable/disable/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

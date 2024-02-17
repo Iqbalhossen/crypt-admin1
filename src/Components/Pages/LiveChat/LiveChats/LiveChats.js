@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import SingleUser from './SingleUser';
 import SingleChats from './SingleChats';
 import { io } from 'socket.io-client';
-const ENDPOINT = "https://gffex.xyz";
+const ENDPOINT = "http://localhost:5000";
 var socket;
 
 const LiveChats = () => {
@@ -12,7 +12,7 @@ const LiveChats = () => {
     const showRef = useRef(null);
 
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/chat/conversation/view`, {
+        fetch(`http://localhost:5000/api/chat/conversation/view`, {
             method: 'GET',
         })
             .then((res) => res.json())

@@ -5,7 +5,7 @@ const RejectDeposits = () => {
     const [data, setData] = useState([]);
     const [dataSum, setDataSum] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/deposit/reject`, {
+        fetch(`http://localhost:5000/api/admin/deposit/reject`, {
             method: 'GET',
         })
             .then((res) => res.json())

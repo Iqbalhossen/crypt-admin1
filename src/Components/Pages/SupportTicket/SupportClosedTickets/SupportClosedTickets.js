@@ -4,7 +4,7 @@ import SingleItem from '../SingleItem';
 const SupportClosedTickets = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/support/tickets/close/view`, {
+        fetch(`http://localhost:5000/api/admin/support/tickets/close/view`, {
             method: 'GET',
         })
             .then((res) => res.json())

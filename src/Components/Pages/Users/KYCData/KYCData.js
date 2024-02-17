@@ -11,7 +11,7 @@ const KYCData = () => {
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
         if(id){
-            fetch(`https://gffex.xyz/api/admin/kyc/details/by/user/${id}`, {
+            fetch(`http://localhost:5000/api/admin/kyc/details/by/user/${id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
@@ -25,7 +25,7 @@ const KYCData = () => {
 
     const handleAccept = () => {
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`https://gffex.xyz/api/admin/kyc/accept/${data?._id}`, {
+        fetch(`http://localhost:5000/api/admin/kyc/accept/${data?._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -49,7 +49,7 @@ const KYCData = () => {
     }
     const handleReject = () => {
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`https://gffex.xyz/api/admin/kyc/reject/${data?._id}`, {
+        fetch(`http://localhost:5000/api/admin/kyc/reject/${data?._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -78,7 +78,7 @@ const KYCData = () => {
 
 
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/user/view/single/${id}`, {
+        fetch(`http://localhost:5000/api/admin/user/view/single/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -118,13 +118,13 @@ console.log(data)
                                     <li className="list-group-item d-flex justify-content-between align-items-center">
                                         Front Part Photo
                                         <span>
-                                            <Link to={`https://gffex.xyz/${data?.front_img}`} className="me-3" target='_blank'><i className="fa fa-file"></i>  Attachment </Link>
+                                            <Link to={`http://localhost:5000/${data?.front_img}`} className="me-3" target='_blank'><i className="fa fa-file"></i>  Attachment </Link>
                                         </span>
                                     </li>
                                     <li className="list-group-item d-flex justify-content-between align-items-center">
                                         Back Part Photo
                                         <span>
-                                            <Link to={`https://gffex.xyz/${data?.back_img}`} className="me-3" target='_blank'><i className="fa fa-file"></i>  Attachment </Link>
+                                            <Link to={`http://localhost:5000/${data?.back_img}`} className="me-3" target='_blank'><i className="fa fa-file"></i>  Attachment </Link>
                                         </span>
                                     </li>
                                     <li className="list-group-item d-flex justify-content-between align-items-center">

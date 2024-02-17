@@ -7,7 +7,7 @@ const WithdrawalsLog = () => {
     const [dataSum, setdataSum] = useState([]);
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/withdrawal/all/view`, {
+        fetch(`http://localhost:5000/api/admin/withdrawal/all/view`, {
             method: 'GET',
         })
             .then((res) => res.json())

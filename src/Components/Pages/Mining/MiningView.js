@@ -14,7 +14,7 @@ const MiningView = () => {
      const [data, setData] = useState([]);
      const [updateData, setupdateData] = useState([]);
      useEffect(() => {
-         fetch(`https://gffex.xyz/api/admin/mining/view`, {
+         fetch(`http://localhost:5000/api/admin/mining/view`, {
              method: 'GET',
          })
              .then((res) => res.json())
@@ -25,7 +25,7 @@ const MiningView = () => {
  
  
      const handleDelete = id => {
-         fetch(`https://gffex.xyz/api/admin/mining/delete/${id}`, {
+         fetch(`http://localhost:5000/api/admin/mining/delete/${id}`, {
              method: 'DELETE',
              headers: {
                  'content-type': 'application/json',

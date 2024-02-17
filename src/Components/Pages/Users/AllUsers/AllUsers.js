@@ -4,7 +4,7 @@ import SingleItem from '../SingleItem';
 const AllUsers = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/user/view/all`, {
+        fetch(`http://localhost:5000/api/admin/user/view/all`, {
             method: 'GET',
         })
             .then((res) => res.json())

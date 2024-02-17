@@ -9,7 +9,7 @@ const SignUpToTradeBtn = () => {
     const handleSubmitData = event => {
         event.preventDefault();
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`https://gffex.xyz/api/admin/home/signup/to/trade/button/store`, {
+        fetch(`http://localhost:5000/api/admin/home/signup/to/trade/button/store`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -59,7 +59,7 @@ const SignUpToTradeBtn = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/frontend/home/signup/to/trade/button/view`, {
+        fetch(`http://localhost:5000/api/frontend/home/signup/to/trade/button/view`, {
             method: 'GET',
         })
             .then((res) => res.json())

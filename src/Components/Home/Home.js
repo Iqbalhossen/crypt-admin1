@@ -9,7 +9,7 @@ const Home = () => {
 
 
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/dashboard/view`, {
+        fetch(`http://localhost:5000/api/admin/dashboard/view`, {
             method: 'GET',
         })
             .then((res) => res.json())

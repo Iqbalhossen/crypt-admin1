@@ -9,7 +9,7 @@ const TransactionLogs = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/report/view`, {
+        fetch(`http://localhost:5000/api/admin/report/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -51,7 +51,7 @@ const TransactionLogs = () => {
                 'content-type': 'application/json',
             }
         };
-        axios.get(`https://gffex.xyz/api/admin/report/view?search=${nameFilter}&trx_type=${trx_typeFilter}&remark=${Remark}&start_date=${dateValue[0]}&end_date=${dateValue[1]}`, config)
+        axios.get(`http://localhost:5000/api/admin/report/view?search=${nameFilter}&trx_type=${trx_typeFilter}&remark=${Remark}&start_date=${dateValue[0]}&end_date=${dateValue[1]}`, config)
             .then(response => {
                 toast.success(`${response?.data.message}`, {
                     position: "top-right",

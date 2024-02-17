@@ -12,7 +12,7 @@ const SingleItem = ({ index, data, handleEnableDisabled, handleDelete }) => {
                 <td data-label="Crypto">
                     <div className="user" >
                         <div className="thumb">
-                            <img src={`https://gffex.xyz/${data?.image}`} alt='' />
+                            <img src={`http://localhost:5000/${data?.image}`} alt='' />
                         </div>
                         <span className="name"></span>
                     </div>

@@ -5,7 +5,7 @@ import SingleItem from '../SingleItem';
 const DrawTradeLog = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/trade/log/draw`, {
+        fetch(`http://localhost:5000/api/admin/trade/log/draw`, {
             method: 'GET',
         })
             .then((res) => res.json())

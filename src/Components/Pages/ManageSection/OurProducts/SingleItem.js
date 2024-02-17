@@ -9,7 +9,7 @@ const SingleItem = ({ index, data, handleDelete }) => {
                 <td  data-label="Iamge">
                 <div className="user">
                         <div className="thumb">
-                            <img src={`https://gffex.xyz/${data?.image_url}`} alt='' />
+                            <img src={`http://localhost:5000/${data?.image_url}`} alt='' />
                         </div>
                     </div>
                 </td>

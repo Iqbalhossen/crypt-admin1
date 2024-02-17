@@ -74,7 +74,7 @@ const OurProductsEdit = () => {
                     'content-type': 'multipart/form-data',
                 }
             };
-            axios.put(`https://gffex.xyz/api/admin/home/our/products/update/${id}`, userData, config)
+            axios.put(`http://localhost:5000/api/admin/home/our/products/update/${id}`, userData, config)
                 .then(response => {
                     event.target.reset();
                     setResults(response.data)
@@ -108,7 +108,7 @@ const OurProductsEdit = () => {
 
 
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/home/our/products/edit/${id}`, {
+        fetch(`http://localhost:5000/api/admin/home/our/products/edit/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -140,7 +140,7 @@ const OurProductsEdit = () => {
                                                 <div className="thumb">
                                                     <div className="avatar-preview">
                                                         <div className="profilePicPreview" style={{ height: '120px', width: '100%' }}>
-                                                            <img src={`https://gffex.xyz/${data?.image_url}`} style={{ width: '100%', height: '120px' }} alt="" />
+                                                            <img src={`http://localhost:5000/${data?.image_url}`} style={{ width: '100%', height: '120px' }} alt="" />
                                                         </div>
                                                     </div>
                                                     <div className="avatar-edit">

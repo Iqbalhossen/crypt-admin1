@@ -6,7 +6,7 @@ const PendingDeposits = () => {
     const [data, setData] = useState([]);
     const [dataSum, setDataSum] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/deposit/pending`, {
+        fetch(`http://localhost:5000/api/admin/deposit/pending`, {
             method: 'GET',
         })
             .then((res) => res.json())

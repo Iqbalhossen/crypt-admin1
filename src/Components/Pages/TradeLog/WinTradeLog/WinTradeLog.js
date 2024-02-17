@@ -5,7 +5,7 @@ import SingleItem from '../SingleItem';
 const WinTradeLog = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/trade/log/win`, {
+        fetch(`http://localhost:5000/api/admin/trade/log/win`, {
             method: 'GET',
         })
             .then((res) => res.json())

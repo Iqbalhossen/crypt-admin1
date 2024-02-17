@@ -17,7 +17,7 @@ const SliderView = () => {
     const [data, setData] = useState([]);
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/frontend/home/slider/view`, {
+        fetch(`http://localhost:5000/api/frontend/home/slider/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -28,7 +28,7 @@ const SliderView = () => {
 
 
     const handleDelete = id => {
-        fetch(`https://gffex.xyz/api/admin/home/slider/delete/${id}`, {
+        fetch(`http://localhost:5000/api/admin/home/slider/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
@@ -85,7 +85,7 @@ const SliderView = () => {
                 }
             };
             axios
-                .post(`https://gffex.xyz/api/admin/home/slider/store`, userData, config)
+                .post(`http://localhost:5000/api/admin/home/slider/store`, userData, config)
                 .then(data => {
                     handleClose();
                     event.target.reset();

@@ -7,7 +7,7 @@ const SingleItem = ({ data, ticket, handleDelete }) => {
     const [FileData, setFileData] = useState([]);
     useEffect(() => {
         if (_id) {
-            fetch(`https://gffex.xyz/api/admin/support/tickets/file/view/${_id}`, {
+            fetch(`http://localhost:5000/api/admin/support/tickets/file/view/${_id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
@@ -22,7 +22,7 @@ const SingleItem = ({ data, ticket, handleDelete }) => {
     const [admin, setAdmin] = useState([]);
     useEffect(() => {
         if (admin_id !== null && data) {
-            fetch(`https://gffex.xyz/api/admin/role/view/${admin_id}`, {
+            fetch(`http://localhost:5000/api/admin/role/view/${admin_id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
@@ -37,7 +37,7 @@ const SingleItem = ({ data, ticket, handleDelete }) => {
     const [userData, setuserData] = useState([]);
     useEffect(() => {
         if (data?.user_id) {
-            fetch(`https://gffex.xyz/api/admin/user/view/single/${data?.user_id}`, {
+            fetch(`http://localhost:5000/api/admin/user/view/single/${data?.user_id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
@@ -66,7 +66,7 @@ const SingleItem = ({ data, ticket, handleDelete }) => {
                         <p>{message}</p>
                         <div className="my-3">
                             {FileData?.attachment !== undefined ?
-                                <Link target='_blank' to={`https://gffex.xyz/${FileData?.attachment}`} className="me-2"><i className="fa fa-file"></i> Attachment</Link>
+                                <Link target='_blank' to={`http://localhost:5000/${FileData?.attachment}`} className="me-2"><i className="fa fa-file"></i> Attachment</Link>
                                 : ''}
 
 
@@ -104,7 +104,7 @@ const SingleItem = ({ data, ticket, handleDelete }) => {
                         <p>{message}</p>
                         <div className="my-3">
                             {FileData?.attachment !== undefined ?
-                                <Link target='_blank' to={`https://gffex.xyz/${FileData?.attachment}`} className="me-2"><i className="fa fa-file"></i> Attachment</Link>
+                                <Link target='_blank' to={`http://localhost:5000/${FileData?.attachment}`} className="me-2"><i className="fa fa-file"></i> Attachment</Link>
                                 : ''}
 
                         </div>

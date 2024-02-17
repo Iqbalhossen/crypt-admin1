@@ -5,7 +5,7 @@ import SingleItem from '../SingleItem';
 const SupportTicketPending = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/support/tickets/view`, {
+        fetch(`http://localhost:5000/api/admin/support/tickets/view`, {
             method: 'GET',
         })
             .then((res) => res.json())

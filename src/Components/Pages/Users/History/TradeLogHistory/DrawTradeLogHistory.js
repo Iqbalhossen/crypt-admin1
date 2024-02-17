@@ -7,7 +7,7 @@ const DrawTradeLogHistory = () => {
     const {id} = useParams();
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/user/trade/log/draw/${id}`, {
+        fetch(`http://localhost:5000/api/admin/user/trade/log/draw/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())

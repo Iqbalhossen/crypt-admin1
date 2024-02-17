@@ -11,7 +11,7 @@ const AprovedNow = () => {
     const [updateData, setupdateData] = useState([]);
     const [userData, setUserData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/loan/view/${id}`, {
+        fetch(`http://localhost:5000/api/admin/loan/view/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -22,7 +22,7 @@ const AprovedNow = () => {
 
     useEffect(() => {
         if (data?.user_id) {
-            fetch(`https://gffex.xyz/api/admin/user/view/single/${data?.user_id}`, {
+            fetch(`http://localhost:5000/api/admin/user/view/single/${data?.user_id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
@@ -45,7 +45,7 @@ const AprovedNow = () => {
                 'content-type': 'application/json',
             }
         };
-        axios.put(`https://gffex.xyz/api/admin/loan/accept/${data?._id}`, dataVulue, config)
+        axios.put(`http://localhost:5000/api/admin/loan/accept/${data?._id}`, dataVulue, config)
             .then(response => {
                 event.target.reset();
                 toast.success(`${response?.data.message}`, {

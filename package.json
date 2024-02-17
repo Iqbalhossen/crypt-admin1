@@ -1,6 +1,6 @@
 {
   "name": "gffex",
-  "homepage": "https://gffex.xyz/",
+  "homepage": "http://localhost:5000/",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://127.0.0.1:5000",

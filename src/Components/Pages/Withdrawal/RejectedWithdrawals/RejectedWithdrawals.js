@@ -6,7 +6,7 @@ const RejectedWithdrawals = () => {
     const [data, setData] = useState([]);
     const [dataSum, setdataSum] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/withdrawal/reject`, {
+        fetch(`http://localhost:5000/api/admin/withdrawal/reject`, {
             method: 'GET',
         })
             .then((res) => res.json())

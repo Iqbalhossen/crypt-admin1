@@ -9,7 +9,7 @@ const WithdrawalsDetails = () => {
     const [data, setData] = useState([]);
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/withdrawal/single/view/${id}`, {
+        fetch(`http://localhost:5000/api/admin/withdrawal/single/view/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -21,7 +21,7 @@ const WithdrawalsDetails = () => {
     const [userData, setuserData] = useState([]);
     useEffect(() => {
         if(data?.user_id){
-            fetch(`https://gffex.xyz/api/admin/user/view/single/${data?.user_id}`, {
+            fetch(`http://localhost:5000/api/admin/user/view/single/${data?.user_id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
@@ -32,7 +32,7 @@ const WithdrawalsDetails = () => {
     }, [data])
 
     const handleAccept = id => {
-        fetch(`https://gffex.xyz/api/admin/withdrawal/accept/${id}`, {
+        fetch(`http://localhost:5000/api/admin/withdrawal/accept/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -55,7 +55,7 @@ const WithdrawalsDetails = () => {
             .catch(error => console.log(error));
     }
     const handleReject = id => {
-        fetch(`https://gffex.xyz/api/admin/withdrawal/reject/${id}`, {
+        fetch(`http://localhost:5000/api/admin/withdrawal/reject/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

@@ -3,7 +3,7 @@ import ChatsItem from './ChatsItem';
 import { io } from 'socket.io-client';
 import { AuthContext } from '../../../../Contexts/AuthContext/AuthProvider';
 import axios from 'axios';
-const ENDPOINT = "https://gffex.xyz";
+const ENDPOINT = "http://localhost:5000";
 var socket, selectedChatCompare;
 
 const SingleChats = ({ singleChatData }) => {
@@ -26,7 +26,7 @@ const SingleChats = ({ singleChatData }) => {
 
     useEffect(() => {
         setMessagesInputValue("");
-        fetch(`https://gffex.xyz/api/chat//messgae/view/${_id}`, {
+        fetch(`http://localhost:5000/api/chat//messgae/view/${_id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -49,7 +49,7 @@ const SingleChats = ({ singleChatData }) => {
 
                 }
             };
-            axios.post(`https://gffex.xyz/api/chat/messgae/send/${_id}`, storeData, config)
+            axios.post(`http://localhost:5000/api/chat/messgae/send/${_id}`, storeData, config)
                 .then(async (res) => {
                     event.target.reset();
                     const NewMessages = res?.data?.data;
@@ -100,7 +100,7 @@ const SingleChats = ({ singleChatData }) => {
                     <div className="row">
                         <div className="col-lg-6">
                             <button >
-                                <img src={`https://gffex.xyz/${picture}`} alt="avatar" />
+                                <img src={`http://localhost:5000/${picture}`} alt="avatar" />
                             </button>
                             <div className="chat-about">
                                 <h6 className="m-b-0">{name}</h6>

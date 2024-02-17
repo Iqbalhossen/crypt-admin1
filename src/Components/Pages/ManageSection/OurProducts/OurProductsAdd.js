@@ -67,7 +67,7 @@ const OurProductsAdd = () => {
                     'content-type': 'multipart/form-data',
                 }
             };
-            axios.post(`https://gffex.xyz/api/admin/home/our/products/store`, userData, config)
+            axios.post(`http://localhost:5000/api/admin/home/our/products/store`, userData, config)
                 .then(response => {
                     event.target.reset();
                     toast.success(`${response?.data.message}`, {

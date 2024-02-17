@@ -8,7 +8,7 @@ const DepositsDetails = () => {
     const [data, setData] = useState([]);
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/deposit/single/${id}`, {
+        fetch(`http://localhost:5000/api/admin/deposit/single/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -20,7 +20,7 @@ const DepositsDetails = () => {
     const [userData, setuserData] = useState([]);
     useEffect(() => {
         if (data?.user_id) {
-            fetch(`https://gffex.xyz/api/admin/user/view/single/${data?.user_id}`, {
+            fetch(`http://localhost:5000/api/admin/user/view/single/${data?.user_id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())
@@ -32,7 +32,7 @@ const DepositsDetails = () => {
     }, [data])
 
     const handleAccept = id => {
-        fetch(`https://gffex.xyz/api/admin/deposit/accept/${id}`, {
+        fetch(`http://localhost:5000/api/admin/deposit/accept/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -55,7 +55,7 @@ const DepositsDetails = () => {
             .catch(error => console.log(error));
     }
     const handleReject = id => {
-        fetch(`https://gffex.xyz/api/admin/deposit/reject/${id}`, {
+        fetch(`http://localhost:5000/api/admin/deposit/reject/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -161,7 +161,7 @@ const DepositsDetails = () => {
                             <div class="row mt-4">
                                 <div class="col-md-12">
                                     <h6>Transaction screenshot</h6>
-                                    <a href={`https://gffex.xyz/${data?.screenshot}`} target='_blank' class="me-3" alt=''><i class="fa fa-file"></i>  Attachment </a>
+                                    <a href={`http://localhost:5000/${data?.screenshot}`} target='_blank' class="me-3" alt=''><i class="fa fa-file"></i>  Attachment </a>
                                 </div>
                             </div>
                             <div class="row mt-4">

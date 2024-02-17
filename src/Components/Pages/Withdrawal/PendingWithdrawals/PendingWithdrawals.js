@@ -6,7 +6,7 @@ const PendingWithdrawals = () => {
     const [dataSum, setdataSum] = useState([]);
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/withdrawal/pending`, {
+        fetch(`http://localhost:5000/api/admin/withdrawal/pending`, {
             method: 'GET',
         })
             .then((res) => res.json())

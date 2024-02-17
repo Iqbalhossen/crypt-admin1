@@ -9,7 +9,7 @@ const SocialSupport = () => {
     const handleSubmitData = event => {
         event.preventDefault();
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`https://gffex.xyz/api/admin/site/setting/social/support/store`, {
+        fetch(`http://localhost:5000/api/admin/site/setting/social/support/store`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -59,7 +59,7 @@ const SocialSupport = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/site/setting/social/support/view`, {
+        fetch(`http://localhost:5000/api/admin/site/setting/social/support/view`, {
             method: 'GET',
         })
             .then((res) => res.json())

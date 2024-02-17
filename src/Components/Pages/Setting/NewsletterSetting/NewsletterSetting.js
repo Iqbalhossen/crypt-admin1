@@ -12,7 +12,7 @@ const NewsletterSetting = () => {
     const handleSubmitData = event => {
         event.preventDefault();
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`https://gffex.xyz/api/admin/site/setting/newsletter/store`, {
+        fetch(`http://localhost:5000/api/admin/site/setting/newsletter/store`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -62,7 +62,7 @@ const NewsletterSetting = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/frontend/home/newsletter/setting/view`, {
+        fetch(`http://localhost:5000/api/frontend/home/newsletter/setting/view`, {
             method: 'GET',
         })
             .then((res) => res.json())

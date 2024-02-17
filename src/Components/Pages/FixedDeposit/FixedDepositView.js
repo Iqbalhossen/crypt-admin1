@@ -15,7 +15,7 @@ const FixedDepositView = () => {
     const [data, setData] = useState([]);
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/fixed/deposit/view`, {
+        fetch(`http://localhost:5000/api/admin/fixed/deposit/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -26,7 +26,7 @@ const FixedDepositView = () => {
 
 
     const handleDelete = id => {
-        fetch(`https://gffex.xyz/api/admin/fixed/deposit/delete/${id}`, {
+        fetch(`http://localhost:5000/api/admin/fixed/deposit/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',

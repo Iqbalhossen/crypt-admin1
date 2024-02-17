@@ -9,7 +9,7 @@ const WithdrawalMethods = () => {
     const [data, setData] = useState([]);
     const [updateData, setupdateData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/withdrawal/methods/view`, {
+        fetch(`http://localhost:5000/api/admin/withdrawal/methods/view`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -20,7 +20,7 @@ const WithdrawalMethods = () => {
 
 
     const handleEnableDisabled = id => {
-        fetch(`https://gffex.xyz/api/admin/withdrawal/methods/enable/disable/${id}`, {
+        fetch(`http://localhost:5000/api/admin/withdrawal/methods/enable/disable/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

@@ -16,7 +16,7 @@ const MiningEdit = () => {
   
 
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/mining/view/${id}`, {
+        fetch(`http://localhost:5000/api/admin/mining/view/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -38,7 +38,7 @@ const MiningEdit = () => {
                 'content-type': 'multipart/form-data',
             }
         };
-        axios.put(`https://gffex.xyz/api/admin/mining/update/${id}`, userData, config)
+        axios.put(`http://localhost:5000/api/admin/mining/update/${id}`, userData, config)
             .then(response => {
                 event.target.reset();
                 toast.success(`${response?.data.message}`, {

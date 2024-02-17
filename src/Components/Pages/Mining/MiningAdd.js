@@ -52,7 +52,7 @@ const MiningAdd = () => {
                     'content-type': 'multipart/form-data',
                 }
             };
-            axios.post(`https://gffex.xyz/api/admin/mining/store`, userData, config)
+            axios.post(`http://localhost:5000/api/admin/mining/store`, userData, config)
                 .then(response => {
                     event.target.reset();
                     toast.success(`${response?.data.message}`, {

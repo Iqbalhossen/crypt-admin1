@@ -11,7 +11,7 @@ const Details = () => {
 
 
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/user/view/single/${id}`, {
+        fetch(`http://localhost:5000/api/admin/user/view/single/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -22,7 +22,7 @@ const Details = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/user/view/history/view/${id}`, {
+        fetch(`http://localhost:5000/api/admin/user/view/history/view/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
@@ -49,7 +49,7 @@ const Details = () => {
         event.preventDefault();
         const storeData = { ...BalanceAddDataVulue, user_id: id }
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`https://gffex.xyz/api/admin/user/view/balance/add`, {
+        fetch(`http://localhost:5000/api/admin/user/view/balance/add`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -113,7 +113,7 @@ const Details = () => {
         event.preventDefault();
         const storeData = { ...BalanceMinusDataVulue, user_id: id }
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`https://gffex.xyz/api/admin/user/view/balance/subtract`, {
+        fetch(`http://localhost:5000/api/admin/user/view/balance/subtract`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -174,7 +174,7 @@ const Details = () => {
     const handleUserSubmitData = event => {
         event.preventDefault();
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`https://gffex.xyz/api/admin/user/view/update/by/${id}`, {
+        fetch(`http://localhost:5000/api/admin/user/view/update/by/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -244,7 +244,7 @@ const Details = () => {
     const handleBanSubmitData = event => {
         event.preventDefault();
         refSubmitDis.current.setAttribute("disabled", true);
-        fetch(`https://gffex.xyz/api/admin/user/view/banned/${id}`, {
+        fetch(`http://localhost:5000/api/admin/user/view/banned/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

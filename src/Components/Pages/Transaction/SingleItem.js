@@ -7,7 +7,7 @@ const SingleItem = ({ data, index }) => {
     const [userData, setuserData] = useState([]);
     useEffect(() => {
         if(data?.user_id){
-            fetch(`https://gffex.xyz/api/admin/user/view/single/${data?.user_id}`, {
+            fetch(`http://localhost:5000/api/admin/user/view/single/${data?.user_id}`, {
                 method: 'GET',
             })
                 .then((res) => res.json())

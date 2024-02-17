@@ -8,7 +8,7 @@ const DepositHistory = () => {
     const [data, setData] = useState([]);
     const [dataSum, setDataSum] = useState([]);
     useEffect(() => {
-        fetch(`https://gffex.xyz/api/admin/deposit/history/view/${id}`, {
+        fetch(`http://localhost:5000/api/admin/deposit/history/view/${id}`, {
             method: 'GET',
         })
             .then((res) => res.json())
